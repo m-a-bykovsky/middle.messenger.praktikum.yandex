@@ -1,3 +1,9 @@
+## Макет 
+https://www.figma.com/file/2UKVA4ybFUaWmidl4yk7kx/middle.messenger.praktikum.yandex?node-id=0%3A1&t=IIimJiDcYuAlCDGF-1
+
+## Дефолтное описание ↓ 
+Удалить после)
+
 ### Ветка, в которой делаете задания спринта, должна называться sprint_i, где i - номер спринта. Не переименовывайте её.
 
 ### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main. 
