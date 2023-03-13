@@ -1,7 +1,7 @@
 {
-  "name": "middle.messenger.praktikum.yandex",
+  "name": "mb",
   "version": "1.0.0",
-  "description": "",
+  "description": "middle.messenger.praktikum.yandex",
   "main": "src/index.js",
   "scripts": {
     "dev": "parcel src/index.html --port 3000 --open",
@@ -13,12 +13,9 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.14",
-    "cssnano": "^5.1.15",
     "parcel": "^2.8.3",
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
-    "postcss-import": "^15.1.0",
-    "postcss-preset-env": "^8.0.1",
-    "precss": "^4.0.0"
+    "postcss-preset-env": "^8.0.1"
   }
 }

@@ -1,5 +1,15 @@
 /* тут буду @import из других директорий компонент/утилит */
-* {
-    color: #f30;
-    background-color: #fff;
+
+h1 {
+    color: transparent;
+    background: linear-gradient(90deg, rgb(71, 140, 243) 0%, rgba(162,0,255,1) 100%);
+    background-clip: text;
+    display: flex;
+}
+
+.example {
+    display: grid;
+    transition: all .5s;
+    user-select: none;
+    background: linear-gradient(to bottom, white, black);
 }
