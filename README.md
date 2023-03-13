@@ -10,5 +10,6 @@
 - Parcel;
 - Javascript (vanilla);
 - TypeScript;
+- Pug;
 - PostCSS;
 - Netlify;

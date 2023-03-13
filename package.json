@@ -4,14 +4,15 @@
   "description": "middle.messenger.praktikum.yandex",
   "main": "src/index.js",
   "scripts": {
-    "dev": "parcel src/index.html --port 3000 --open",
-    "build": "parcel build src/index.html",
+    "dev": "parcel src/index.pug --port 3000 --open",
+    "build": "parcel build src/index.pug",
     "postcss:watch": "postcss src/index.css --dir dist --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-pug": "^2.8.3",
     "autoprefixer": "^10.4.14",
     "parcel": "^2.8.3",
     "postcss": "^8.4.21",
