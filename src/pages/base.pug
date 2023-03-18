@@ -1,5 +1,5 @@
 block vars
-    - var pageTitle 
+    - var pageTitle
 
 doctype html
 html(lang="ru")
@@ -7,14 +7,20 @@ html(lang="ru")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        
         block fonts
             link(rel="preconnect", href="https://fonts.googleapis.com")
             link(rel="preconnect", href="https://fonts.gstatic.com" crossorigin)
             link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap")
-        link(rel="stylesheet", href="./index.css")
+        block layout-style
+            //-   to extend
+        block styles
+            //-   to extend
         title mb:#{pageTitle}
     body 
-        block header
-        block main
-        block footer
-            footer#footer mb:#{pageTitle}
+        main#main
+            block main
+                p main stub
+        footer#footer 
+            block footer
+                p footer stub

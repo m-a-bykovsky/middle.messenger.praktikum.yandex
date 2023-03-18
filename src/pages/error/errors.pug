@@ -1,0 +1,20 @@
+extends ../base.pug
+
+block vars
+    - var pageTitle="ooopsy"
+
+block layout-style
+    link(rel="stylesheet", href="../../layouts/quarter-centered.css")
+
+block styles
+     link(rel="stylesheet", href="./errors.css")
+
+block main
+    article.error
+        p.error__title #{errorCode}
+        p.error__message #{errorMsg}
+        a(href="../../index.pug").error__backlink Назад к <s>чатам</s> меню
+
+block footer   
+    div mb:#{pageTitle}
+    div middle.messenger.praktikum.yandex

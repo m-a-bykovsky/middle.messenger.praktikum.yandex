@@ -1,7 +1,24 @@
 extends ./pages/base.pug
 
 block vars
-    - var pageTitle="chat"
+    - var pageTitle="stub"
 
-block header   
-    h1 middle.messenger.praktikum.yandex
+mixin menuItem(title,ref)
+    li 
+        a(href=ref)=title
+
+block main
+    h1 Макеты
+    ul
+        +menuItem("Авторизация", "")
+        +menuItem("Регистрация", "")
+        +menuItem("Страница 404", "./pages/error/404.pug")
+        +menuItem("Страница 500", "./pages/error/500.pug")
+        +menuItem("Список чатов и лента", "")
+        +menuItem("Настройки пользователя: информация", "")
+        +menuItem("Настройки пользователя: аватар", "")
+        +menuItem("Настройки пользователя: пароль", "")
+
+block footer   
+    h1 mb:#{pageTitle}
+    h2 middle.messenger.praktikum.yandex
