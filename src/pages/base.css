@@ -1,13 +1,37 @@
-@import url(./reset.css);
-
 :root {
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
 }
+
+* {
+    font-size: 12px;
+}
+
 body {
-    display: flex;
+    display: grid;
+    gap: 0 20px;
+    margin: 0 20px;
 }
+
+#header,
+#main,
 #footer {
-    font-weight: lighter;
-    color: red;
+    display: flex;
+    flex-direction: column;
 }
+
+#main {
+    grid-area: main;
+}
+
+#footer {
+    color: transparent;
+    background: linear-gradient(90deg, rgb(71, 140, 243) 0%, rgba(162, 0, 255, 1) 100%);
+    background-clip: text;
+    font-weight: lighter;
+    font-size: smaller;
+    grid-area: footer;
+    justify-content: center;
+    align-content: center;
+}
+
