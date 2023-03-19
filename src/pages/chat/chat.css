@@ -1,0 +1,26 @@
+@import url(../base.css);
+@import url(../../mixins/chat-preview/chat-preview.css);
+
+.chatlist {
+    grid-area: side;
+    overflow: hidden;
+    background-color: #fbfbfb;
+    border-right: 1px solid #eaeaea;
+}
+.chatlist__header {
+    height: 50px;
+}
+.chatlist__content {
+    overflow-y: scroll;
+    height: calc(100% - 50px);
+}
+
+.chatlist__content::-webkit-scrollbar{
+    opacity: 0;
+    width: 3px;
+}
+
+.chatlist__content:hover::-webkit-scrollbar{
+    display: block;
+    background-color: red;
+}

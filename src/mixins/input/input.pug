@@ -1,0 +1,6 @@
+mixin inputField(title, name, type="input", isReq=true)
+    if type == "search"
+        input(id=name, name=name, type=type, required=isReq, placeholder=title)
+    else 
+        label(for=name)=title
+        input(id=name, name=name, type=type, required=isReq)

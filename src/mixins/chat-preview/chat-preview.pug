@@ -1,0 +1,9 @@
+mixin chatPreview(data)
+    include ../../mixins/avatar/avatar.pug
+    .chat-preview
+        +avatar(data.avatarSrc, data.contact)
+        .chat-preview__message.message
+            .message__author=data.contact
+            .message__text=data.lastMsg
+        .chat-preview__update-time=data.updateTime
+        .chat-preview__new-messages-counter=data.newMsgCounter

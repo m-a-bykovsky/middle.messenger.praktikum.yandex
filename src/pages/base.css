@@ -1,3 +1,5 @@
+@import url(./reset.css);
+
 :root {
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
@@ -10,7 +12,6 @@
 body {
     display: grid;
     gap: 0 20px;
-    margin: 0 20px;
 }
 
 #header,
@@ -18,10 +19,17 @@ body {
 #footer {
     display: flex;
     flex-direction: column;
+    margin: 0 20px;
 }
 
 #main {
     grid-area: main;
+}
+
+.link {
+    font-size: .9rem;
+    color: #3369F3;
+    text-decoration: none;
 }
 
 #footer {

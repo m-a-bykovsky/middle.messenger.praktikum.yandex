@@ -10,11 +10,7 @@ block styles
      link(rel="stylesheet", href="./errors.css")
 
 block main
-    article.error
-        p.error__title #{errorCode}
+    .error
+        h1.error__title #{errorCode}
         p.error__message #{errorMsg}
-        a(href="../../index.pug").error__backlink Назад к <s>чатам</s> меню
-
-block footer   
-    div mb:#{pageTitle}
-    div middle.messenger.praktikum.yandex
+        a(href="../../index.pug").error__backlink.link Назад к <s>чатам</s> меню

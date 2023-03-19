@@ -1,0 +1,18 @@
+.avatar {
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgb(71, 140, 243) 0%, rgba(162, 0, 255, 1) 100%);
+	background-size: 200% 200%;
+	animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

@@ -1,0 +1,22 @@
+extends ../base.pug
+include ../../mixins/input/input.pug
+
+block vars
+    //- extension point
+
+block layout-style
+    link(rel="stylesheet", href="../../layouts/quarter-centered.css")
+
+block styles
+    link(rel="stylesheet", href="../../mixins/modal.css")
+    link(rel="stylesheet", href="./auth.css")
+
+block main
+    .auth.modal
+        h1.auth__title #{authTitle}
+        form.auth__form
+            block authFormContent
+                //- extension point
+                | extension point
+            button.auth__button #{mainButtonTitle} 
+        a(href=additionalLink).auth__additional-link.link #{additionalLinkTitle}

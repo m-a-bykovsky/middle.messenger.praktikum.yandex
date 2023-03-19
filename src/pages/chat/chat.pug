@@ -1,0 +1,95 @@
+extends ../base.pug
+include ../../mixins/input/input.pug
+include ../../mixins/chat-preview/chat-preview.pug
+
+
+block vars
+    - let pageTitle="let's chat"
+    - 
+        let dataSet = [
+            {
+                contact: "Design Destroyer",
+                avatarSrc: "/",
+                lastMsg: "В 2008 году художник Jon Rafman  начал собирать",
+                updateTime: "23:14",
+                newMsgCounter: "1"
+            }, 
+            {
+                contact: "тет-а-теты",
+                avatarSrc: "/",
+                lastMsg: "И Human Interface Guidelines и Material Design рекомендуют",
+                updateTime: "23:14",
+            }, 
+            {
+                contact: "Илья",
+                avatarSrc: "/",
+                lastMsg: "Друзья, у меня для вас особенный выпуск новостей!",
+                updateTime: "23:14",
+                newMsgCounter: "4"
+            },
+                        {
+                contact: "Design Destroyer",
+                avatarSrc: "/",
+                lastMsg: "В 2008 году художник Jon Rafman  начал собирать",
+                updateTime: "23:14",
+                newMsgCounter: "1"
+            }, 
+            {
+                contact: "тет-а-теты",
+                avatarSrc: "/",
+                lastMsg: "И Human Interface Guidelines и Material Design рекомендуют",
+                updateTime: "23:14",
+            }, 
+            {
+                contact: "тет-а-теты",
+                avatarSrc: "/",
+                lastMsg: "И Human Interface Guidelines и Material Design рекомендуют",
+                updateTime: "23:14",
+            }, 
+            {
+                contact: "Илья",
+                avatarSrc: "/",
+                lastMsg: "Друзья, у меня для вас особенный выпуск новостей!",
+                updateTime: "23:14",
+                newMsgCounter: "4"
+            },
+                        {
+                contact: "Design Destroyer",
+                avatarSrc: "/",
+                lastMsg: "В 2008 году художник Jon Rafman  начал собирать",
+                updateTime: "23:14",
+                newMsgCounter: "1"
+            }, 
+            {
+                contact: "тет-а-теты",
+                avatarSrc: "/",
+                lastMsg: "И Human Interface Guidelines и Material Design рекомендуют",
+                updateTime: "23:14",
+            }, 
+            {
+                contact: "Илья",
+                avatarSrc: "/",
+                lastMsg: "Друзья, у меня для вас особенный выпуск новостей!",
+                updateTime: "23:14",
+                newMsgCounter: "4"
+            }
+        ]
+
+
+block layout-style
+    link(rel="stylesheet", href="../../layouts/quarter-left.css")
+
+block styles
+     link(rel="stylesheet", href="./chat.css")
+
+block side
+    .chatlist
+        .chatlist__header
+            .link.secondary Профиль >
+            +inputField("Поиск", "search", "search")
+        .chatlist__content
+            for data in dataSet
+                +chatPreview(data)
+
+block main
+    #feed
