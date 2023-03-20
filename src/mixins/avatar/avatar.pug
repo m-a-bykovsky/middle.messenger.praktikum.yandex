@@ -1,3 +1,7 @@
-mixin avatar(src, alt, size=64)   
+mixin avatar(src, alt, size=60)   
     //- mock src
-    img(src=`https://picsum.photos/seed/${alt}/${size}`, alt=alt, style=`width: ${size}; height: ${size}`).avatar
+    -
+        if (!src || src == '/')
+            src=`https://picsum.photos/seed/${alt}/${size}`
+    
+    img(src=src, alt=alt).avatar

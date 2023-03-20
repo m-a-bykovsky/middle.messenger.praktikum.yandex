@@ -1,9 +1,13 @@
 mixin chatPreview(data)
     include ../../mixins/avatar/avatar.pug
-    .chat-preview
-        +avatar(data.avatarSrc, data.contact)
-        .chat-preview__message.message
+
+    .chat-preview(class=attributes.class)
+        .chat-preview__avatar
+            +avatar(data.avatarSrc, data.contact)
+        .chat-preview__last-message.message
+            //- вынести в миксин? ↓↓↓
             .message__author=data.contact
             .message__text=data.lastMsg
         .chat-preview__update-time=data.updateTime
-        .chat-preview__new-messages-counter=data.newMsgCounter
+        if (data.newMsgCounter)
+            .chat-preview__new-messages-counter=data.newMsgCounter

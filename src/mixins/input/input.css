@@ -7,9 +7,10 @@ label + input {
     margin-bottom: 14px;
 }
 
-input {
+input:not[type="search"] {
     border: none;
     border-bottom: 1px solid #3369F3;
     padding: 7px 0;
     outline: 0;
 }
+

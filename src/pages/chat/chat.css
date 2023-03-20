@@ -1,5 +1,10 @@
 @import url(../base.css);
 @import url(../../mixins/chat-preview/chat-preview.css);
+@import url(../../mixins/input/input.css);
+
+:root {
+    --header-height: 100px;
+}
 
 .chatlist {
     grid-area: side;
@@ -7,20 +12,52 @@
     background-color: #fbfbfb;
     border-right: 1px solid #eaeaea;
 }
+
 .chatlist__header {
-    height: 50px;
-}
-.chatlist__content {
-    overflow-y: scroll;
-    height: calc(100% - 50px);
+    height: var(--header-height);
 }
 
-.chatlist__content::-webkit-scrollbar{
+.chatlist__content {
+    overflow-y: scroll;
+    height: calc(100% - var(--header-height));
+}
+
+.chatlist__content::-webkit-scrollbar {
     opacity: 0;
     width: 3px;
 }
 
-.chatlist__content:hover::-webkit-scrollbar{
+.chatlist__content:hover::-webkit-scrollbar {
     display: block;
-    background-color: red;
+}
+
+.chatlist__content:hover::-webkit-scrollbar-thumb {
+    background-color: #eaeaea;
+}
+
+#search > input {
+    padding: 7px;
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    background-color: #EFEFEF;
+}
+#search > input:focus {
+    padding-left: 34px;
+}
+#search > input::placeholder{
+    text-align: center;
+}
+#search > input:focus::placeholder {
+    color: transparent;
+}
+
+#search::before{
+    content: 'Zoooomicon';
+    position: absolute;
+}
+#search {
+    position: relative;
+    margin: 0 10px
 }
