@@ -6,6 +6,10 @@
     --header-height: 100px;
 }
 
+body {
+    max-height: 100vh;
+}
+
 .chatlist {
     grid-area: side;
     overflow: hidden;
@@ -15,6 +19,24 @@
 
 .chatlist__header {
     height: var(--header-height);
+    padding: 20px 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chatlist__header .link {
+    text-align: right;
+    color: #999;
+    font-size: 1rem;
+    padding-right: 10px;
+    position: relative;
+}
+.chatlist__header .link::after{
+    content: '❯';
+    position: absolute;
+    right: 0;
+    bottom: -1px;
 }
 
 .chatlist__content {
@@ -27,37 +49,42 @@
     width: 3px;
 }
 
-.chatlist__content:hover::-webkit-scrollbar {
-    display: block;
-}
-
 .chatlist__content:hover::-webkit-scrollbar-thumb {
     background-color: #eaeaea;
 }
 
-#search > input {
+#search>input {
     padding: 7px;
     width: 100%;
-    background-color: transparent;
     outline: none;
     border: none;
     background-color: #EFEFEF;
-}
-#search > input:focus {
-    padding-left: 34px;
-}
-#search > input::placeholder{
-    text-align: center;
-}
-#search > input:focus::placeholder {
-    color: transparent;
+    color: #1E1E1E;
+    border-radius: 5px;
 }
 
-#search::before{
-    content: 'Zoooomicon';
+#search>input::placeholder {
+    color: #999;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' id='search'%3e%3cg fill='none' fill-rule='evenodd' stroke='%23999' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' transform='translate(1 1)'%3e%3ccircle cx='7.5' cy='7.5' r='7.5'%3e%3c/circle%3e%3cpath d='M18 18l-5.2-5.2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 20px;
     position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: fit-content;
+    height: 1em;
+    transition: 100ms;
 }
-#search {
-    position: relative;
-    margin: 0 10px
+
+#search>input:focus::placeholder {
+    color: transparent;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' id='search'%3e%3cg fill='none' fill-rule='evenodd' stroke='transparent' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' transform='translate(1 1)'%3e%3ccircle cx='7.5' cy='7.5' r='7.5'%3e%3c/circle%3e%3cpath d='M18 18l-5.2-5.2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
+}
+
+#search>input::-webkit-search-cancel-button{
+    display: none;
 }

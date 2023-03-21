@@ -2,6 +2,7 @@
 
 .chat-preview {
     display: grid;
+    color: #999;
     grid-template-areas:
         "avatar message time"
         "avatar message counter";
@@ -18,14 +19,15 @@
         0 -13px 0px -10px #eaeaea
 }
 
-.chat-preview.current,
+.chat-preview.current {
+    background-color: #D0E0FB;
+    color: #666
+}
+
 .chat-preview:hover {
     background-color: #E4EDFD;
 }
 
-.chat-preview * {
-    color: #999
-}
 
 .chat-preview__avatar {
     grid-area: avatar;

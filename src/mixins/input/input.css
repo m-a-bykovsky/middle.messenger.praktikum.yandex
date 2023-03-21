@@ -7,10 +7,14 @@ label + input {
     margin-bottom: 14px;
 }
 
-input:not[type="search"] {
+input:not([type='search']) {
     border: none;
     border-bottom: 1px solid #3369F3;
     padding: 7px 0;
     outline: 0;
 }
 
+input:hover,
+input:focus {
+    outline: none;
+}

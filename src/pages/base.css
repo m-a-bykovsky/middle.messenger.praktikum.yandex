@@ -30,6 +30,10 @@ body {
     font-size: .9rem;
     color: #3369F3;
     text-decoration: none;
+    cursor: pointer;
+}
+.link:hover{
+    text-decoration: underline;
 }
 
 #footer {

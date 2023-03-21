@@ -25,10 +25,9 @@ html {
   color-scheme: dark light;
 }
 
-/* min-max body height */
+/* min body height */
 
 body {
-  max-height: 100vh;
   min-height: 100vh;
 }
 
