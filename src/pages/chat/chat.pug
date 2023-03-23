@@ -6,14 +6,14 @@ include ../../mixins/chat-preview/chat-preview.pug
 block vars
     - let pageTitle="поболтаем?"
     -   
+        //- mock
         let currentChat = {
-                contact: "Karen Chan",
-                avatarSrc: "https://suncat.stanford.edu/sites/default/files/styles/people_image/public/karen.jpg?itok=YIWr7QLg",
-                lastMsg: "Let' talk about some electrochemical CO 2 reduction?",
-                updateTime: "23:14",
-                newMsgCounter: "1"
-            }; 
-        let dataSet = [
+            contact: "Che Cat",
+            avatarSrc: "https://i.pinimg.com/564x/28/58/4d/28584d9b724c390f530ee2039bffd69e.jpg",
+            lastMsg: "Я думаю, он должен был превратиться!",
+            updateTime: "23:29",
+        }; 
+        let chatlistData = [
             {
                 contact: "Design Destroyer",
                 avatarSrc: "/",
@@ -92,24 +92,155 @@ block vars
                 newMsgCounter: "23"
             }
         ]
+        let chatData = [
+            {
+                text: "Я думаю, он должен был превратиться!",
+                time: "23:29",
+                author: "cCat",
+            },
+            {
+                text: "Он превратился в поросёнка",
+                time: "23:29",
+                author: "self",
+            },
+            {
+                text: "Кстати, что произошло с ребёнком? Я чуть не забыл тебя спросить",
+                time: "23:28",
+                author: "cCat",
+            },
+            {
+                text: "Ты меня увидишь там",
+                time: "23:15",
+                author: "cCat",
+            },
+            {
+                text: "Я была бы очень рада, но я не приглашена ещё",
+                time: "23:15",
+                author: "self",
+            },
+            {
+                text: "Называй как хочешь. Ты играешь сегодня с Королевой в крокет?",
+                time: "23:14",
+                author: "cCat",
+            },
+            {
+                text: "Я называю это мурлыканьем, а не ворчанием",
+                time: "23:14",
+                author: "self",
+            },
+            {
+                text: "Ну, тогда дальше. Видишь ли, собака ворчит, когда она сердита, и машет хвостом, когда она довольна. Ну а я ворчу, когда я доволен, и машу хвостом, когда я сердит. Поэтому я — сумасшедший.",
+                time: "23:23",
+                author: "cCat",
+            },
+            {
+                text: "Я полагаю, что это так.",
+                time: "23:07",
+                author: "self",
+            },
+            {
+                text: "Начать с того, что собака не сумасшедшая. Ты согласна с этим?",
+                time: "23:06",
+                author: "cCat",
+            },
+            {
+                text: "А почему вы знаете, что вы сумасшедший?",
+                time: "23:02",
+                author: "self",
+            },
+            {
+                text: "Ты безусловно должна быть сумасшедшей, иначе ты не попала бы сюда.",
+                time: "23:02",
+                author: "cCat",
+            },
 
+            {
+                text: "Откуда вы знаете, что я сумасшедшая?",
+                time: "23:01",
+                author: "self",
+            },
+            {
+                text: "О, ты ничего не можешь с этим поделать. Мы все здесь сумасшедшие. Я сумасшедший. Ты сумасшедшая.",
+                time: "23:01",
+                author: "cCat",
+            },
+            {
+                text: "Но я вовсе не желаю путешествовать среди сумасшедших.",
+                time: "23:00",
+                author: "self",
+            },
+            {
+                text: "В этом направлении живёт Шляпочник, а в том — Мартовский Заяц. Навести кого хочешь: они оба — сумасшедшие.",
+                time: "22:59",
+                author: "cCat",
+            },
+            {
+                text: "Что за люди живут здесь в окрестностях?",
+                time: "22:57",
+                author: "self",
+            },
+            {
+                text: "О, наверно, так и получится, если только ты пойдёшь достаточно далеко.",
+                time: "22:56",
+                author: "cCat",
+            },
+            {
+                text: "Так далеко, чтобы прийти куда-нибудь.",
+                time: "22:56",
+                author: "self",
+            },
+            {
+                text: "Тогда не имеет значения, по какой дороге ты пойдёшь.",
+                time: "22:54",
+                author: "cCat",
+            },
+            {
+                text: "Я не очень забочусь, куда именно...",
+                time: "22:54",
+                author: "self",
+            },
+            {
+                text: "Это в большой степени зависит от того, куда ты хочешь прийти.",
+                time: "22:54",
+                author: "cCat",
+            },
+            {
+                text: "Не будете ли вы добры сказать мне, по какой дороге я могу уйти отсюда?",
+                time: "22:54",
+                author: "self",
+            },
+
+        ]
 
 block layout-style
-    link(rel="stylesheet", href="../../layouts/quarter-left.css")
+    link(rel="stylesheet" href="../../layouts/quarter-left.css")
 
 block styles
-     link(rel="stylesheet", href="./chat.css")
+    link(rel="stylesheet" href="./chat.css")
 
 block side
     .chatlist
         .chatlist__header
             a.link.secondary Профиль
-            #search
-                +inputField("Поиск", "ChatSearch", "search")
+            +inputField("Поиск", "chatlistSearch", "search")
         .chatlist__content
             +chatPreview(currentChat)(class="current")
-            for data in dataSet
+            for data in chatlistData
                 +chatPreview(data)
 
 block main
-    #feed
+    if (!chatData)
+        .intro Выберите чат, чтобы отправить сообщение
+    else
+        .chat 
+            .chat__header
+            .chat__main
+                for data in chatData 
+                    .message(data-author=data.author) 
+                        .message__text #{data.text}
+                        .message__time #{data.time}
+                    if (data.attach) 
+                        .message(data-author=data.author) 
+                            .message__attach
+                            .message__time #{data.time}
+            .chat__footer

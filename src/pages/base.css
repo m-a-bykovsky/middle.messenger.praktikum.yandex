@@ -19,7 +19,6 @@ body {
 #footer {
     display: flex;
     flex-direction: column;
-    margin: 0 20px;
 }
 
 #main {
@@ -45,5 +44,6 @@ body {
     grid-area: footer;
     justify-content: center;
     align-content: center;
+    padding: 0 10px;
 }
 

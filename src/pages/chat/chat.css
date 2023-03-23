@@ -10,6 +10,9 @@ body {
     max-height: 100vh;
 }
 
+
+/* Список всех чатов */
+
 .chatlist {
     grid-area: side;
     overflow: hidden;
@@ -26,13 +29,15 @@ body {
 }
 
 .chatlist__header .link {
-    text-align: right;
     color: #999;
-    font-size: 1rem;
     padding-right: 10px;
+    font-size: 1rem;
     position: relative;
+    display: inline;
+    margin-left: auto;
 }
-.chatlist__header .link::after{
+
+.chatlist__header .link::after {
     content: '❯';
     position: absolute;
     right: 0;
@@ -44,47 +49,80 @@ body {
     height: calc(100% - var(--header-height));
 }
 
-.chatlist__content::-webkit-scrollbar {
+/* Область чата */
+
+.intro {
+    color: #999;
+    margin: auto;
+}
+
+.chat,
+.chat__header,
+.chat__main,
+.chat__footer {
+    display: flex;
+    width: 100%;
+}
+
+.chat {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+.chat__main {
+    flex-direction: column-reverse;
+    margin-top: auto;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+
+.chat__header,
+.chat__footer {
+    flex-direction: row;
+    height: 50px;
+    min-height: 50px;
+    padding-right: 20px;
+}
+
+.chat__main .message {
+    margin: 10px 0;
+    padding: 1rem;
+    max-width: 45%;
+    background-color: #F8F8F8;
+    width: fit-content;
+    border-radius: 12px;
+    word-wrap: break-word;
+}
+
+.chat__main .message:not([data-author="self"]) {
+    border-top-left-radius: 0; 
+}
+.chat__main .message[data-author="self"] {
+    border-bottom-right-radius: 0;
+    align-self: flex-end;
+    background-color: #E4EDFD;
+}
+
+.chat__main .message[data-type="attach"] {
+    background-color: #fff;
+    border: 1px sold #F8F8F8
+}
+
+.chat__main .message[data-type="attach"][data-author="self"] {
+    border-color: 1px sold #E4EDFD
+}
+
+/* Scrollbar */
+
+.chatlist__content::-webkit-scrollbar,
+.chat__main::-webkit-scrollbar  {
     opacity: 0;
     width: 3px;
 }
 
+.chat__main:hover::-webkit-scrollbar-thumb,
 .chatlist__content:hover::-webkit-scrollbar-thumb {
     background-color: #eaeaea;
-}
-
-#search>input {
-    padding: 7px;
-    width: 100%;
-    outline: none;
-    border: none;
-    background-color: #EFEFEF;
-    color: #1E1E1E;
-    border-radius: 5px;
-}
-
-#search>input::placeholder {
-    color: #999;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' id='search'%3e%3cg fill='none' fill-rule='evenodd' stroke='%23999' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' transform='translate(1 1)'%3e%3ccircle cx='7.5' cy='7.5' r='7.5'%3e%3c/circle%3e%3cpath d='M18 18l-5.2-5.2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-size: contain;
-    padding-left: 20px;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: fit-content;
-    height: 1em;
-    transition: 100ms;
-}
-
-#search>input:focus::placeholder {
-    color: transparent;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' id='search'%3e%3cg fill='none' fill-rule='evenodd' stroke='transparent' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' transform='translate(1 1)'%3e%3ccircle cx='7.5' cy='7.5' r='7.5'%3e%3c/circle%3e%3cpath d='M18 18l-5.2-5.2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
-}
-
-#search>input::-webkit-search-cancel-button{
-    display: none;
 }

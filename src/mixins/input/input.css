@@ -3,7 +3,7 @@ label {
     color: #999;
 }
 
-label + input {
+label+input {
     margin-bottom: 14px;
 }
 
@@ -17,4 +17,58 @@ input:not([type='search']) {
 input:hover,
 input:focus {
     outline: none;
+}
+
+input[type="search"] {
+    --bg: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' id='search'%3e%3cg fill='none' fill-rule='evenodd' stroke='%23999' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' transform='translate(1 1)'%3e%3ccircle cx='7.5' cy='7.5' r='7.5'%3e%3c/circle%3e%3cpath d='M18 18l-5.2-5.2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
+    --bg-transparent: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' id='search'%3e%3cg fill='none' fill-rule='evenodd' stroke='transparent' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' transform='translate(1 1)'%3e%3ccircle cx='7.5' cy='7.5' r='7.5'%3e%3c/circle%3e%3cpath d='M18 18l-5.2-5.2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
+}
+
+input[type="search"],
+input[type="search"]::placeholder {
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-position: 10px center;
+    transition: background-image 100ms, color 100ms;
+}
+
+input[type="search"] {
+    padding: 7px 7px 7px 30px;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: #EFEFEF;
+    color: #1E1E1E;
+    border-radius: 5px;
+    background-image: var(--bg-transparent);
+}
+
+input[type="search"]:focus,
+input[type="search"]:active,
+input[type="search"]:not(:placeholder-shown){
+    background-image: var(--bg);
+    transition: 200ms;
+}
+
+input[type="search"]::placeholder {
+    color: #999;
+    background-image: var(--bg);
+    padding-left: 30px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: -30px;
+    right: 0;
+    bottom: 0;
+    width: fit-content;
+    height: 1em;
+}
+
+input[type="search"]:focus::placeholder {
+    color: transparent;
+    background-image: var(--bg-transparent);
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
 }
