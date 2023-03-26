@@ -11,13 +11,14 @@ body {
 }
 
 
+
 /* Список всех чатов */
 
 .chatlist {
     grid-area: side;
     overflow: hidden;
     background-color: #fbfbfb;
-    border-right: 1px solid #eaeaea;
+    box-shadow: inset -2px 0px 0px #fff, inset -3px 0 0 #eaeaea;
 }
 
 .chatlist__header {
@@ -49,6 +50,15 @@ body {
     height: calc(100% - var(--header-height));
 }
 
+.chatlist .message__text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
 /* Область чата */
 
 .intro {
@@ -61,21 +71,6 @@ body {
 .chat__main,
 .chat__footer {
     display: flex;
-    width: 100%;
-}
-
-.chat {
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-    padding-right: 10px;
-}
-
-.chat__main {
-    flex-direction: column-reverse;
-    margin-top: auto;
-    overflow-y: scroll;
-    padding-right: 10px;
 }
 
 .chat__header,
@@ -83,22 +78,65 @@ body {
     flex-direction: row;
     height: 50px;
     min-height: 50px;
-    padding-right: 20px;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+
+}
+
+
+.chat__footer {
+    border-top: 1px solid #eaeaea;
+}
+
+.chat {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.chat__header {
+    border-bottom: 1px solid #eaeaea;
+    justify-content: inherit;    
+}
+.contact-info {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    gap: inherit;
+}
+.contact-info__title {
+    color: #1E1E1E;
+    font-size: 1.1rem;
+    font-weight: bolder;
+}
+
+.chat__main {
+    flex-direction: column-reverse;
+    margin-top: auto;
+    overflow-y: scroll;
+    padding: 30px 10px 30px 0;
+    margin-right: 10px;
 }
 
 .chat__main .message {
-    margin: 10px 0;
     padding: 1rem;
     max-width: 45%;
+    margin-bottom: 10px;
     background-color: #F8F8F8;
     width: fit-content;
     border-radius: 12px;
     word-wrap: break-word;
 }
 
-.chat__main .message:not([data-author="self"]) {
-    border-top-left-radius: 0; 
+.chat__main .message:first-child {
+    margin-bottom: 0;
 }
+
+.chat__main .message:not([data-author="self"]) {
+    border-top-left-radius: 0;
+}
+
 .chat__main .message[data-author="self"] {
     border-bottom-right-radius: 0;
     align-self: flex-end;
@@ -114,10 +152,47 @@ body {
     border-color: 1px sold #E4EDFD
 }
 
+.message__text {
+    position: relative;
+}
+
+.message__status {
+    float: right;
+    margin-left: 15px;
+}
+
+.message__time {
+    position: relative;
+    top: 0.1rem;
+    float: right;
+    font-size: .9rem;
+    color: #999;
+    margin-left: 5px;
+}
+
+.message[data-author="self"] .message__time {
+    color: #478cf3
+}
+
+.message__status i{
+    width: 1em;
+    display: block;
+    height: 1em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+.message__status i.read-message {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg viewBox='0 0 13.4 7.8' xmlns='http://www.w3.org/2000/svg' version='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.4'%3E%3Cpath stroke='%23478cf3' d='m 0.7 4.1 l 3 3 l 6 -6.4'/%3E%3Cpath stroke='%23a200ff' d='m 6.7 7.1 l 6 -6.4'/%3E%3C/svg%3E");
+}
+.message__status i.delivered-message {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg viewBox='0 0 13.4 7.8' xmlns='http://www.w3.org/2000/svg' version='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.4'%3E%3Cpath stroke='%23478cf3' d='m 0.7 4.1 l 3 3 l 6 -6.4'/%3E%3C/svg%3E");
+}
+
 /* Scrollbar */
 
 .chatlist__content::-webkit-scrollbar,
-.chat__main::-webkit-scrollbar  {
+.chat__main::-webkit-scrollbar {
     opacity: 0;
     width: 3px;
 }

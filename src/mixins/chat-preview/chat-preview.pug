@@ -7,7 +7,10 @@ mixin chatPreview(data)
         .chat-preview__last-message.message
             //- вынести в миксин? ↓↓↓
             .message__author=data.contact
-            .message__text=data.lastMsg
+            if (data.author=='self')
+                .message__text <span style="font-weight: bolder">Вы:</span> #{data.lastMsg}
+            else
+                .message__text=data.lastMsg
         .chat-preview__update-time=data.updateTime
         if (data.newMsgCounter)
             .chat-preview__new-messages-counter=data.newMsgCounter
