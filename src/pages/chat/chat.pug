@@ -1,5 +1,6 @@
 extends ../base.pug
 include ../../mixins/input/input.pug
+include ../../mixins/icon/icon.pug
 include ../../mixins/chat-preview/chat-preview.pug
 
 
@@ -243,10 +244,11 @@ block main
         .chat 
             .chat__header
                 .contact-info 
-                    +avatar(currentChat.avatarSrc,currentChat.contact, 35)(class="contact-info__avatar")
+                    .contact-info__avatar
+                        +avatar(currentChat.avatarSrc,currentChat.contact, 35)
                     h3.contact-info__title #{currentChat.contact}
                 .header-tools
-                    .more ...
+                    +icon("mb-more mb-2x mb-pointer")
             .chat__main
                 for data in chatData 
                     .message(data-author=data.author) 
@@ -254,17 +256,18 @@ block main
                             .message__time #{data.time} 
                             .message__status
                                 if(data.status=='read')
-                                    i.read-message(title="Сообщение прочитано")
+                                    +icon("mb-read-message")
                                 else if (data.status=='delivered')
-                                    i.delivered-message(title="Сообщение доставлено")
+                                    +icon("mb-delivered-message")
                     if (data.attach) 
                         .message(data-author=data.author) 
                             .message__attach
                             .message__time #{data.time}
             .chat__footer
                 .new-message
-                    .new-message__attachment att
+                    .new-message__attachment
+                        +icon("mb-attach mb-2x mb-pointer")
                     .new-message__input
                         +inputField("Сообщение")
-                        button(type="submit") отправить
-                        
+                        button(type="submit")(class='rounded')
+                            +icon("mb-arrow-right mb-2x mb-active mb-pointer")

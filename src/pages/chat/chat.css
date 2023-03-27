@@ -1,6 +1,7 @@
 @import url(../base.css);
 @import url(../../mixins/chat-preview/chat-preview.css);
 @import url(../../mixins/input/input.css);
+@import url(../../mixins/icon/icon.css);
 
 :root {
     --header-height: 100px;
@@ -85,9 +86,6 @@ body {
 }
 
 
-.chat__footer {
-    border-top: 1px solid #eaeaea;
-}
 
 .chat {
     flex-direction: column;
@@ -97,14 +95,16 @@ body {
 
 .chat__header {
     border-bottom: 1px solid #eaeaea;
-    justify-content: inherit;    
+    justify-content: inherit;
 }
+
 .contact-info {
     flex-direction: row;
     display: flex;
     align-items: center;
     gap: inherit;
 }
+
 .contact-info__title {
     color: #1E1E1E;
     font-size: 1.1rem;
@@ -174,20 +174,28 @@ body {
     color: #478cf3
 }
 
-.message__status i{
-    width: 1em;
-    display: block;
-    height: 1em;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left;
+
+.chat__footer {
+    border-top: 1px solid #eaeaea;
 }
-.message__status i.read-message {
-    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg viewBox='0 0 13.4 7.8' xmlns='http://www.w3.org/2000/svg' version='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.4'%3E%3Cpath stroke='%23478cf3' d='m 0.7 4.1 l 3 3 l 6 -6.4'/%3E%3Cpath stroke='%23a200ff' d='m 6.7 7.1 l 6 -6.4'/%3E%3C/svg%3E");
+
+.new-message {
+    display: inherit;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: inherit;
 }
-.message__status i.delivered-message {
-    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg viewBox='0 0 13.4 7.8' xmlns='http://www.w3.org/2000/svg' version='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.4'%3E%3Cpath stroke='%23478cf3' d='m 0.7 4.1 l 3 3 l 6 -6.4'/%3E%3C/svg%3E");
+
+button.rounded{
+    border: 0;
+    border-radius: 50%;
+    padding: 0.3em;
+    width: 3.5em;
+    height: 3.5em;
+    background: #478cf3;
 }
+
 
 /* Scrollbar */
 
