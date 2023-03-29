@@ -104,6 +104,12 @@ block vars
                 author: "self",
             },
             {
+                attachSrc: "https://images-s.kinorium.com/movie/shot/40971/h280_38085025.jpg",
+                time: "23:29",
+                status: "delivered",
+                author: "self",
+            },
+            {
                 text: "Кстати, что произошло с ребёнком? Я чуть не забыл тебя спросить",
                 time: "23:28",
                 author: "cCat",
@@ -174,6 +180,11 @@ block vars
                 time: "23:00",
                 status: "read",
                 author: "self",
+            },
+            {
+                attachSrc: "https://avatars.mds.yandex.net/i?id=800aa9c27dd42ff99621419c5e0d83d116a2467c-7998362-images-thumbs&n=13",
+                time: "22:59",
+                author: "cCat",
             },
             {
                 text: "В этом направлении живёт Шляпочник, а в том — Мартовский Заяц. Навести кого хочешь: они оба — сумасшедшие.",
@@ -251,17 +262,19 @@ block main
                     +icon("mb-more mb-3x mb-pointer")
             .chat__main
                 for data in chatData 
-                    .message(data-author=data.author) 
-                        .message__text #{data.text}
-                            .message__time #{data.time} 
-                            .message__status
-                                if(data.status=='read')
-                                    +icon("mb-read-message")
-                                else if (data.status=='delivered')
-                                    +icon("mb-delivered-message")
-                    if (data.attach) 
+                    if (data.text)    
                         .message(data-author=data.author) 
+                            .message__text #{data.text}
+                                .message__time #{data.time} 
+                                .message__status
+                                    if(data.status=='read')
+                                        +icon("mb-read-message")
+                                    else if (data.status=='delivered')
+                                        +icon("mb-delivered-message")
+                    if (data.attachSrc) 
+                        .message(data-author=data.author, data-type="attach") 
                             .message__attach
+                                img(src=data.attachSrc, alt=`${data.author}_${data.time}_attachment`)
                             .message__time #{data.time}
             .chat__footer
                 .new-message

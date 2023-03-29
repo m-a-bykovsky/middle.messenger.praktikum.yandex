@@ -40,6 +40,15 @@
     gap: 4px 0;
 }
 
+.chat-preview__last-message .message__text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
 .message__author {
     color: #1E1E1E;
     font-size: 1.1rem;

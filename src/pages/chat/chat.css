@@ -11,8 +11,6 @@ body {
     max-height: 100vh;
 }
 
-
-
 /* Список всех чатов */
 
 .chatlist {
@@ -51,16 +49,9 @@ body {
     height: calc(100% - var(--header-height));
 }
 
-.chatlist .message__text {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    white-space: normal;
-}
-
-/* Область чата */
+/*
+* Основная область
+**/
 
 .intro {
     color: #999;
@@ -85,13 +76,15 @@ body {
 
 }
 
-
-
 .chat {
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
 }
+
+/*
+* Шапка чата. Инфо о контакте. Тулбар
+**/
 
 .chat__header {
     border-bottom: 1px solid #eaeaea;
@@ -111,6 +104,11 @@ body {
     font-weight: bolder;
 }
 
+
+/*
+* Переписка
+**/
+
 .chat__main {
     flex-direction: column-reverse;
     margin-top: auto;
@@ -119,7 +117,10 @@ body {
     margin-right: 10px;
 }
 
+/* Сообщение */
+
 .chat__main .message {
+    position: relative;
     padding: 1rem;
     max-width: 45%;
     margin-bottom: 10px;
@@ -143,15 +144,6 @@ body {
     background-color: #E4EDFD;
 }
 
-.chat__main .message[data-type="attach"] {
-    background-color: #fff;
-    border: 1px sold #F8F8F8
-}
-
-.chat__main .message[data-type="attach"][data-author="self"] {
-    border-color: 1px sold #E4EDFD
-}
-
 .message__text {
     position: relative;
 }
@@ -170,10 +162,48 @@ body {
     margin-left: 5px;
 }
 
+/* Вложения (изображения) */
+
+
+.chat__main .message[data-type="attach"] {
+    background-color: #fff;
+    border: 3px solid #F8F8F8;
+    padding: 0;
+}
+
+.chat__main .message[data-type="attach"][data-author="self"] {
+    border-color: #E4EDFD
+}
+
+.message .message__attach>img {
+    max-height: 250px;
+    border-radius: 9px;
+}
+.message[data-author="self"] .message__attach>img {
+    border-bottom-right-radius: 0px;
+}
+
+.message:not([data-author="self"]) .message__attach>img {
+    border-top-left-radius: 0px;
+}
+
 .message[data-author="self"] .message__time {
     color: #478cf3
 }
 
+.message[data-type="attach"] .message__time {
+    padding: 0.3em;
+    background: #e4edfdcc;
+    position: absolute;
+    border-radius: 5px;
+    bottom: 5px;
+    top: unset;
+    right: 5px;
+}
+
+/*
+* Подвал. Создание нового собщения
+**/
 
 .chat__footer {
     border-top: 1px solid #eaeaea;
@@ -195,7 +225,7 @@ body {
     width: 100%;
 }
 
-button.rounded{
+button.rounded {
     border: 0;
     border-radius: 50%;
     padding: 0.3em;
