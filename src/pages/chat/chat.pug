@@ -231,7 +231,7 @@ block side
     .chatlist
         .chatlist__header
             a.link.secondary Профиль
-            +inputField("Поиск", "chatlistSearch", "search")
+            +inputArea("Поиск", "chatlistSearch", "search", false)(class="primary")
         .chatlist__content
             +chatPreview(currentChat)(class="current")
             for data in chatlistData
@@ -248,7 +248,7 @@ block main
                         +avatar(currentChat.avatarSrc,currentChat.contact, 35)
                     h3.contact-info__title #{currentChat.contact}
                 .header-tools
-                    +icon("mb-more mb-2x mb-pointer")
+                    +icon("mb-more mb-3x mb-pointer")
             .chat__main
                 for data in chatData 
                     .message(data-author=data.author) 
@@ -266,8 +266,8 @@ block main
             .chat__footer
                 .new-message
                     .new-message__attachment
-                        +icon("mb-attach mb-2x mb-pointer")
+                        +icon("mb-attach mb-3x mb-pointer")
                     .new-message__input
-                        +inputField("Сообщение")
+                        +inputArea("Сообщение", "newMsg", "input", false)(class="primary")
                         button(type="submit")(class='rounded')
-                            +icon("mb-arrow-right mb-2x mb-active mb-pointer")
+                            +icon("mb-arrow-right mb-pointer")

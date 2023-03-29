@@ -1,12 +1,12 @@
-mixin inputField(title, name, type="input", isReq=true)
-    case type
-        when ("input")
-        when ("password")
-        when ("tel")
-        when ("email")
-            label(for=name)=title
-            input(id=name, name=name, type=type, required=isReq)
-        when ("search")
-            input(id=name, name=name, type=type, required=isReq, placeholder=title)
-        default 
-            input(placeholder='Че-то новое, надо доработать')
+mixin inputArea(title, name, type="input", isReq=true)
+    -
+        let className = (attributes.class) ? `input-area ${attributes.class}` : "input-area";
+    
+    div(class=className)
+        case attributes.class
+            when ("primary")
+                input(id=name, name=name, type=type, required=isReq, placeholder=title)
+            default            
+                label(for=name)=title
+                input(id=name, name=name, type=type, required=isReq)
+

@@ -187,12 +187,20 @@ body {
     gap: inherit;
 }
 
+.new-message__input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: inherit;
+    width: 100%;
+}
+
 button.rounded{
     border: 0;
     border-radius: 50%;
     padding: 0.3em;
-    width: 3.5em;
-    height: 3.5em;
+    width: 3em;
+    height: 3em;
     background: #478cf3;
 }
 
