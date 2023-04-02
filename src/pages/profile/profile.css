@@ -1,3 +1,16 @@
 @import url(../base.css);
 @import url(../../mixins/input/input.css);
 @import url(../../mixins/icon/icon.css);
+@import url(../../mixins/avatar/avatar.css);
+
+#main {
+    align-items: center;
+}
+
+#main * {
+    font-size: 1.1rem;
+}
+
+.avatar {
+    margin: 60px 0 100px;
+}

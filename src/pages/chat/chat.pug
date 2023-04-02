@@ -3,7 +3,6 @@ include ../../mixins/input/input.pug
 include ../../mixins/icon/icon.pug
 include ../../mixins/chat-preview/chat-preview.pug
 
-
 block vars
     - let pageTitle="поболтаем?"
     -   
@@ -32,7 +31,8 @@ block vars
             {
                 contact: "Василий",
                 avatarSrc: "/",
-                lastMsg: "там Илюха опять какую-то чепуху придумал",
+                lastMsg: "там Илья опять какую-то чепуху придумал",
+                author: "self",
                 updateTime: "22:10",
             },
             {
@@ -91,6 +91,7 @@ block vars
                 contact: "Ну всё",
                 avatarSrc: "http://moykon.ru/wp-content/uploads/2015/06/iskorka00.jpg",
                 lastMsg: "Это конец",
+                author: "self",
                 updateTime: "27 Мар 2023",
                 newMsgCounter: "23"
             }
@@ -241,8 +242,8 @@ block styles
 block side
     .chatlist
         .chatlist__header
-            a.link.secondary Профиль
-            +inputArea("Поиск", "chatlistSearch", "search", false)(class="primary")
+            a.link.secondary(href="../profile/profile.pug") Профиль 
+            +inputField("Поиск", "chatlistSearch", "search", false)(class="input-field_theme_primary")
         .chatlist__content
             +chatPreview(currentChat)(class="current")
             for data in chatlistData
@@ -262,25 +263,31 @@ block main
                     +icon("mb-more mb-3x mb-pointer")
             .chat__main
                 for data in chatData 
-                    if (data.text)    
-                        .message(data-author=data.author) 
-                            .message__text #{data.text}
-                                .message__time #{data.time} 
+
+                    mixin message-meta
+                        .message__meta
+                            if (data.author=='self')
                                 .message__status
                                     if(data.status=='read')
                                         +icon("mb-read-message")
                                     else if (data.status=='delivered')
                                         +icon("mb-delivered-message")
+                            .message__time #{data.time} 
+
+                    if (data.text)    
+                        .message(data-author=data.author)=data.text
+                            +message-meta
+
                     if (data.attachSrc) 
                         .message(data-author=data.author, data-type="attach") 
-                            .message__attach
-                                img(src=data.attachSrc, alt=`${data.author}_${data.time}_attachment`)
-                            .message__time #{data.time}
+                            img(src=data.attachSrc, alt=`${data.author}_${data.time}_attachment`)
+                            +message-meta
+
             .chat__footer
                 .new-message
                     .new-message__attachment
                         +icon("mb-attach mb-3x mb-pointer")
                     .new-message__input
-                        +inputArea("Сообщение", "newMsg", "input", false)(class="primary")
+                        +inputField("Сообщение", "newMsg", "input", false)(class="input-field_theme_primary")
                         button(type="submit")(class='rounded')
                             +icon("mb-arrow-right mb-pointer")

@@ -1,12 +1,26 @@
-mixin inputArea(title, name, type="input", isReq=true)
+mixin inputField(title, name, type="input", isReq=true)
     -
-        let className = (attributes.class) ? `input-area ${attributes.class}` : "input-area";
-    
+        let className = (attributes.class) ? `input-field ${attributes.class}` : "input-field input-field_theme_standard";
+        let isDisabled = (attributes.disabled) ? true : false;
+        let fieldValue = (attributes.value) ? attributes.value : '';
+
     div(class=className)
         case attributes.class
-            when ("primary")
-                input(id=name, name=name, type=type, required=isReq, placeholder=title)
+            when ("input-field_theme_primary")
+                input(id=name, 
+                    name=name, 
+                    type=type, 
+                    required=isReq, 
+                    placeholder=title, 
+                    disabled=isDisabled, 
+                )
             default            
                 label(for=name)=title
-                input(id=name, name=name, type=type, required=isReq)
+                input(id=name, 
+                    name=name, 
+                    type=type, 
+                    required=isReq, 
+                    disabled=isDisabled, 
+                    value=fieldValue
+                )
 

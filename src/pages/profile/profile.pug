@@ -1,20 +1,35 @@
 extends ../base.pug
 include ../../mixins/input/input.pug
+include ../../mixins/avatar/avatar.pug
 
 
 block vars
     - let pageTitle="профиль"
+    -   
+        //- mock
+        let profileData = {
+            displayName: "mb",
+            firstName: "Михаил",
+            secondName: "Быковский",
+            login: "mb",
+            email: "m.a.bykovsky@yandex.ru",
+            phone: "+7 912 345 67 89"
+        }; 
 
 block layout-style
-    link(rel="stylesheet" href="../../layouts/quarter-centered.css")
+    link(rel="stylesheet" href="../../layouts/half-centered.css")
 
 block styles
     link(rel="stylesheet" href="./profile.css")
 
 block main
-    +inputArea("Почта")
-    +inputArea("Логин")
-    +inputArea("Имя")
-    +inputArea("Фамилия")
-    +inputArea("Имя в чате")
-    +inputArea("Телефон")
+    +avatar("/", "my profile", 130)
+    h2 #{profileData.firstName}
+
+    +inputField("Почта", "email", "email")(class="input-field_theme_inline", value=profileData.email, disabled)
+    +inputField("Логин", "login")(class="input-field_theme_inline", value=profileData.login, disabled)
+    +inputField("Имя", "first_name")(class="input-field_theme_inline", value=profileData.firstName, disabled)
+    +inputField("Фамилия", "second_name")(class="input-field_theme_inline", value=profileData.secondName, disabled)
+    +inputField("Имя в чате", "display_name")(class="input-field_theme_inline", value=profileData.displayName, disabled)
+    +inputField("Телефон", "phone", "tel")(class="input-field_theme_inline", value=profileData.phone, disabled)
+    button(type="submit") submit

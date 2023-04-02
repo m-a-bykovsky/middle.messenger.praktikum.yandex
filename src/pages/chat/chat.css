@@ -113,7 +113,7 @@ body {
     flex-direction: column-reverse;
     margin-top: auto;
     overflow-y: scroll;
-    padding: 30px 10px 30px 0;
+    padding: 30px 7px 30px 0;
     margin-right: 10px;
 }
 
@@ -144,46 +144,51 @@ body {
     background-color: #E4EDFD;
 }
 
-.message__text {
-    position: relative;
+.message__meta {
+    float: right;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.message__meta>* {
+    font-size: .9rem;
 }
 
 .message__status {
-    float: right;
-    margin-left: 15px;
+    margin-right: 5px;
+    display: flex;
 }
 
 .message__time {
     position: relative;
-    top: 0.1rem;
-    float: right;
-    font-size: .9rem;
     color: #999;
-    margin-left: 5px;
 }
 
 /* Вложения (изображения) */
-
 
 .chat__main .message[data-type="attach"] {
     background-color: #fff;
     border: 3px solid #F8F8F8;
     padding: 0;
+    max-width: 400px;
+    max-height: 300px;
 }
 
-.chat__main .message[data-type="attach"][data-author="self"] {
+.message[data-type="attach"][data-author="self"] {
     border-color: #E4EDFD
 }
 
-.message .message__attach>img {
-    max-height: 250px;
+.message[data-type="attach"]>img {
+    max-height: 100%;
     border-radius: 9px;
 }
-.message[data-author="self"] .message__attach>img {
+
+.message[data-author="self"][data-type="attach"]>img {
     border-bottom-right-radius: 0px;
 }
 
-.message:not([data-author="self"]) .message__attach>img {
+.message:not([data-author="self"])[data-type="attach"]>img {
     border-top-left-radius: 0px;
 }
 
@@ -191,9 +196,9 @@ body {
     color: #478cf3
 }
 
-.message[data-type="attach"] .message__time {
+.message[data-type="attach"] .message__meta {
     padding: 0.3em;
-    background: #e4edfdcc;
+    background: #e4edfdbb;
     position: absolute;
     border-radius: 5px;
     bottom: 5px;
