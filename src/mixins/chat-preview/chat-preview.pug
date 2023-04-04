@@ -3,7 +3,7 @@ mixin chatPreview(data)
 
     .chat-preview(class=attributes.class)
         .chat-preview__avatar
-            +avatar(data.avatarSrc, data.contact)
+            +mbAvatar(data.avatarSrc, data.contact)
         .chat-preview__last-message.message
             //- вынести в миксин? ↓↓↓
             .message__author=data.contact

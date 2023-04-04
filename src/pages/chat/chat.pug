@@ -2,6 +2,7 @@ extends ../base.pug
 include ../../mixins/input/input.pug
 include ../../mixins/icon/icon.pug
 include ../../mixins/chat-preview/chat-preview.pug
+include ../../mixins/button/button.pug
 
 block vars
     - let pageTitle="поболтаем?"
@@ -243,7 +244,7 @@ block side
     .chatlist
         .chatlist__header
             a.link.secondary(href="../profile/profile.pug") Профиль 
-            +inputField("Поиск", "chatlistSearch", "search", false)(class="input-field_theme_primary")
+            +mbInput("Поиск", "chatlistSearch", "search", false)(class="input-field_theme-primary")
         .chatlist__content
             +chatPreview(currentChat)(class="current")
             for data in chatlistData
@@ -257,10 +258,10 @@ block main
             .chat__header
                 .contact-info 
                     .contact-info__avatar
-                        +avatar(currentChat.avatarSrc,currentChat.contact, 35)
+                        +mbAvatar(currentChat.avatarSrc,currentChat.contact, 35)
                     h3.contact-info__title #{currentChat.contact}
                 .header-tools
-                    +icon("mb-more mb-3x mb-pointer")
+                    +mbIcon("mb-more mb-3x mb-pointer")
             .chat__main
                 for data in chatData 
 
@@ -269,9 +270,9 @@ block main
                             if (data.author=='self')
                                 .message__status
                                     if(data.status=='read')
-                                        +icon("mb-read-message")
+                                        +mbIcon("mb-read-message")
                                     else if (data.status=='delivered')
-                                        +icon("mb-delivered-message")
+                                        +mbIcon("mb-delivered-message")
                             .message__time #{data.time} 
 
                     if (data.text)    
@@ -286,8 +287,8 @@ block main
             .chat__footer
                 .new-message
                     .new-message__attachment
-                        +icon("mb-attach mb-3x mb-pointer")
+                        +mbIcon("mb-attach mb-3x mb-pointer")
                     .new-message__input
-                        +inputField("Сообщение", "newMsg", "input", false)(class="input-field_theme_primary")
-                        button(type="submit")(class='rounded')
-                            +icon("mb-arrow-right mb-pointer")
+                        +mbInput("Сообщение", "newMsg", "input", false)(class="input-field_theme-primary")
+                        +mbButton.button_theme-icon
+                            +mbIcon("mb-arrow-right mb-pointer")

@@ -2,15 +2,27 @@
 @import url(../../mixins/input/input.css);
 @import url(../../mixins/icon/icon.css);
 @import url(../../mixins/avatar/avatar.css);
+@import url(../../mixins/button/button.css);
+
+* {
+    font-size: 13px;
+}
 
 #main {
-    align-items: center;
+    gap: 60px;
+    margin: 60px 0;
 }
 
-#main * {
-    font-size: 1.1rem;
+#profile__summary,
+#profile__full,
+#profile__settings {
+    margin: 0 auto;
 }
 
-.avatar {
-    margin: 60px 0 100px;
+#profile__summary {
+    text-align: center;
+}
+
+#profile__full {
+    width: 100%;
 }

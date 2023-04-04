@@ -1,12 +1,12 @@
-mixin inputField(title, name, type="input", isReq=true)
+mixin mbInput(title, name, type="input", isReq=true)
     -
-        let className = (attributes.class) ? `input-field ${attributes.class}` : "input-field input-field_theme_standard";
+        let className = (attributes.class) ? `input-field ${attributes.class}` : "input-field input-field_theme-standard";
         let isDisabled = (attributes.disabled) ? true : false;
         let fieldValue = (attributes.value) ? attributes.value : '';
 
     div(class=className)
         case attributes.class
-            when ("input-field_theme_primary")
+            when ("input-field_theme-primary")
                 input(id=name, 
                     name=name, 
                     type=type, 

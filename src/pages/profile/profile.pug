@@ -1,6 +1,7 @@
 extends ../base.pug
 include ../../mixins/input/input.pug
 include ../../mixins/avatar/avatar.pug
+include ../../mixins/button/button.pug
 
 
 block vars
@@ -23,13 +24,16 @@ block styles
     link(rel="stylesheet" href="./profile.css")
 
 block main
-    +avatar("/", "my profile", 130)
-    h2 #{profileData.firstName}
-
-    +inputField("Почта", "email", "email")(class="input-field_theme_inline", value=profileData.email, disabled)
-    +inputField("Логин", "login")(class="input-field_theme_inline", value=profileData.login, disabled)
-    +inputField("Имя", "first_name")(class="input-field_theme_inline", value=profileData.firstName, disabled)
-    +inputField("Фамилия", "second_name")(class="input-field_theme_inline", value=profileData.secondName, disabled)
-    +inputField("Имя в чате", "display_name")(class="input-field_theme_inline", value=profileData.displayName, disabled)
-    +inputField("Телефон", "phone", "tel")(class="input-field_theme_inline", value=profileData.phone, disabled)
-    button(type="submit") submit
+    #profile__summary
+        +mbAvatar("/", "my profile", 130)
+        h2 #{profileData.firstName}
+    #profile__full
+        +mbInput("Почта", "email", "email")(value=profileData.email, disabled).input-field_theme-inline
+        +mbInput("Логин", "login")(value=profileData.login, disabled).input-field_theme-inline
+        +mbInput("Имя", "first_name")(value=profileData.firstName, disabled).input-field_theme-inline
+        +mbInput("Фамилия", "second_name")(value=profileData.secondName, disabled).input-field_theme-inline
+        +mbInput("Имя в чате", "display_name")(value=profileData.displayName, disabled).input-field_theme-inline
+        +mbInput("Телефон", "phone", "tel")(value=profileData.phone, disabled).input-field_theme-inline
+    #profile__settings
+        +mbButton.
+            submit

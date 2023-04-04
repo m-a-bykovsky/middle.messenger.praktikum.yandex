@@ -2,6 +2,7 @@
 @import url(../../mixins/chat-preview/chat-preview.css);
 @import url(../../mixins/input/input.css);
 @import url(../../mixins/icon/icon.css);
+@import url(../../mixins/button/button.css);
 
 :root {
     --header-height: 100px;
@@ -229,16 +230,6 @@ body {
     gap: inherit;
     width: 100%;
 }
-
-button.rounded {
-    border: 0;
-    border-radius: 50%;
-    padding: 0.3em;
-    width: 3em;
-    height: 3em;
-    background: #478cf3;
-}
-
 
 /* Scrollbar */
 

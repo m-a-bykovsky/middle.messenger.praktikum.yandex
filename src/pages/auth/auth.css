@@ -1,5 +1,6 @@
 @import url(../base.css);
 @import url(../../mixins/input/input.css);
+@import url(../../mixins/button/button.css);
 
 #main {
     justify-content: center;
@@ -19,25 +20,18 @@
     line-height: 1.7rem;
     margin: 20px 0 40px;
 }
-.auth__form  {
+
+.auth__form {
     display: flex;
     flex: 1;
     flex-direction: column;
     width: 100%;
 }
 
-.auth__form > input:last-of-type{
+.auth__form>.input-field:last-of-type {
     margin-bottom: 45px;
 }
 
-.auth__button {
-    font-size: 1.1rem;
-    color: #fff;
-    text-decoration: none;
-    background-color: #478cf3;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 0;
+.auth__form>button {
     margin: auto 0 14px;
-    cursor: pointer;
 }
