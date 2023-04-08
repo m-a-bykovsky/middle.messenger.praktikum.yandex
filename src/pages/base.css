@@ -31,14 +31,31 @@ h2 {
     margin: 1.5rem 0 0;
 }
 
-.link {
+a {
     font-size: .9rem;
     color: #478cf3;
     text-decoration: none;
     cursor: pointer;
 }
-.link:hover{
+a:hover{
     text-decoration: underline;
+}
+
+a.extra {
+    color: #999;
+    padding-right: 15px;
+    font-size: 1rem;
+    position: relative;
+}
+
+a.extra::after {
+    content: "❯";
+    position: absolute;
+    transform: translate(3px, -1px);
+}
+
+.warning {
+    color: red;
 }
 
 #footer {

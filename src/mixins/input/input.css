@@ -3,9 +3,11 @@
     flex-direction: column;
     width: 100%;
 }
-.input-field input:disabled{
+
+.input-field input:disabled {
     background-color: inherit;
 }
+
 .input-field input:hover,
 .input-field input:focus {
     outline: none;
@@ -37,25 +39,59 @@
 
 .input-field_theme-inline {
     flex-direction: row;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.input-field_theme-inline input:focus {
+    color: #1E1E1E;
+}
+
+.input-field_theme-inline:not(:last-child)::before,
+.input-field_theme-inline:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    transition: transform 300ms;
+}
+
+.input-field_theme-inline::before {
+    background-color: #eaeaea;
+    transform: translate(0);
+}
+
+.input-field_theme-inline:not(:last-child):focus-within::before {
+    transform: translate(-100%, 0);
+}
+
+.input-field_theme-inline::after {
+    background-color: #478cf3;
+    transform: translate(100%, 0);
+}
+
+.input-field_theme-inline:not(:last-child):focus-within::after {
+    transform: translate(0);
+}
+
+.input-field_theme-inline label,
+.input-field_theme-inline input {
+    padding: 10px 0;
 }
 
 .input-field_theme-inline label {
-    width: 30%;
+    width: 100%;
 }
 
-.input-field_theme-inline input{
+.input-field_theme-inline input {
     border: none;
     margin-left: auto;
     text-align: right;
-    width: 100%;
+    width: fit-content;
     color: #999;
 }
 
-.input-field_theme-inline:not(:last-child){
-    border-bottom: 1px solid #eaeaea;
-}
 /*
 *   Primary
 **/

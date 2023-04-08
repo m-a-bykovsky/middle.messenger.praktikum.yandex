@@ -8,21 +8,37 @@
     font-size: 13px;
 }
 
-#main {
+.profile {
+    display: inherit;
+    flex-direction: inherit;
     gap: 60px;
     margin: 60px 0;
 }
 
-#profile__summary,
-#profile__full,
-#profile__settings {
+.profile__summary,
+.profile__full,
+.profile__settings,
+.profile__submit {
     margin: 0 auto;
 }
 
-#profile__summary {
+.profile__summary {
     text-align: center;
 }
 
-#profile__full {
+.profile__full,
+.profile__settings {
     width: 100%;
+}
+
+
+.profile__settings> * {
+    flex-direction: row;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    display: block;
+}
+
+.profile__settings>*:not(:last-child) {
+    border-bottom: 1px solid #eaeaea;
 }

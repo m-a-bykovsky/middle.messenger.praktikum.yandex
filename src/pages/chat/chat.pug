@@ -243,7 +243,7 @@ block styles
 block side
     .chatlist
         .chatlist__header
-            a.link.secondary(href="../profile/profile.pug") Профиль 
+            a.extra(href="../profile/profile.pug") Профиль 
             +mbInput("Поиск", "chatlistSearch", "search", false)(class="input-field_theme-primary")
         .chatlist__content
             +chatPreview(currentChat)(class="current")

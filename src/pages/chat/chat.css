@@ -29,20 +29,9 @@ body {
     justify-content: space-between;
 }
 
-.chatlist__header .link {
-    color: #999;
-    padding-right: 10px;
-    font-size: 1rem;
-    position: relative;
+.chatlist__header a.extra {
     display: inline;
     margin-left: auto;
-}
-
-.chatlist__header .link::after {
-    content: '❯';
-    position: absolute;
-    right: 0;
-    bottom: -1px;
 }
 
 .chatlist__content {

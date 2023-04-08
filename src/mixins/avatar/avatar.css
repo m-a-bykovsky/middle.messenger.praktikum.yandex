@@ -1,18 +1,48 @@
-.avatar {
-    border-radius: 50%;
-	background: linear-gradient(90deg,  #478cf3, #a200ff , #478cf3 , #a200ff);
+.avatar>img {
+	border-radius: 50%;
+	background: linear-gradient(90deg, #478cf3, #a200ff, #478cf3, #a200ff);
 	background-size: 300% 100%;
 	animation: gradient 5s ease infinite;
 	max-width: 100%;
-    max-height: 100%;
+	max-height: 100%;
 	object-fit: cover;
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 0%;
-	}
 	100% {
 		background-position: 100% 0%;
 	}
+}
+
+.avatar_editable {
+	position: relative;
+	cursor: pointer;
+	border-radius: 50%;
+	--delay: 500ms;
+	box-shadow: 0 0 0 2px #eaeaea;
+	transition: box-shadow var(--delay);
+}
+
+.avatar_editable:hover {
+	box-shadow: 0 0 0 2px #478cf3;
+}
+
+.avatar_editable::after {
+	content: "Изменить аватар";
+	height: calc(100%);
+	width:  calc(100%);
+	position: absolute;
+	border-radius: inherit;
+	display: flex;
+	color: #fff;
+	background-color: #00000080;
+	font-size: 1.3rem;
+	line-height: 1.3rem;
+	align-content: center;
+	flex-wrap: wrap;
+	top: 0;
+	transition: background-color var(--delay);
+}
+.avatar_editable:hover::after {
+	background-color: #000000aa;
 }

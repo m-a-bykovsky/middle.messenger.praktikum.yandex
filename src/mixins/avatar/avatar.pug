@@ -4,4 +4,5 @@ mixin mbAvatar(src, alt, size=50)
         if (!src || src == '/')
             src=`https://picsum.photos/seed/${alt}/${size}`
     
-    img(src=src, alt=alt, width=size, height=size).avatar
+    .avatar(class=attributes.class)
+        img(src=src, alt=alt, width=size, height=size)

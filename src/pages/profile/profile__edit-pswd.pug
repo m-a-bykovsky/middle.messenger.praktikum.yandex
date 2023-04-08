@@ -1,0 +1,10 @@
+extends ./profile.pug
+
+block vars
+    - let pageTitle="изменить пароль"
+    - let mode = "edit"
+    
+block profileFull
+    +mbInput("Старый пароль", "newPassword", "password")(value="•••••••").input-field_theme-inline
+    +mbInput("Новый пароль", "newPassword", "password")(value="•••••••••").input-field_theme-inline
+    +mbInput("Повторите новый пароль", "repeatNewPassword", "password")(value="•••••••••").input-field_theme-inline
