@@ -4,7 +4,7 @@
 * [fascinating-sopapillas.netlify.app](https://fascinating-sopapillas.netlify.app/)
 
 ## Этапы работы
-### Sprint 1
+### Sprint 1 [![Tests](https://github.com/m-a-bykovsky/middle.messenger.praktikum.yandex/actions/workflows/tests.yml/badge.svg?branch=sprint_1)](https://github.com/m-a-bykovsky/middle.messenger.praktikum.yandex/actions/workflows/tests.yml)
 * Для сборки используется Parcel;
 * в качестве шаблонизатора выбран Pug;
 * добавлен PostCSS;
