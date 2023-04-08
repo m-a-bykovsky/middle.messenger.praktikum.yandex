@@ -1,15 +1,18 @@
+a .mb-icon,
 button .mb-icon {
     display: flex;
     margin: 0 auto;
 }
 
 .mb-icon {
-    width: 1em;
+    --size: 1em;
     display: inline-block;
-    height: 1em;
-    background-size: contain;
+    width: var(--size);
+    height: var(--size);
+    background-size: var(--size);
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: 50%;
+
 }
 
 .mb-pointer {
@@ -17,13 +20,11 @@ button .mb-icon {
 }
 
 .mb-2x {
-    width: 2em;
-    height: 2em;
+    --size: 2em;
 }
 
 .mb-3x {
-    width: 3em;
-    height: 3em;
+    --size: 3em;
 }
 
 .mb-read-message {

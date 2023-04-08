@@ -2,6 +2,7 @@ extends ../base.pug
 include ../../mixins/input/input.pug
 include ../../mixins/avatar/avatar.pug
 include ../../mixins/button/button.pug
+include ../../mixins/icon/icon.pug
 
 
 block vars
@@ -53,3 +54,7 @@ block main
                 .profile__submit
                     +mbButton.
                         Сохранить
+
+    nav
+        a(href="/").backlink
+            +mbIcon("mb-arrow-left mb-pointer")
