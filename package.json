@@ -2,10 +2,9 @@
   "name": "mb",
   "version": "1.0.0",
   "description": "middle.messenger.praktikum.yandex",
-  "main": "src/index.js",
   "scripts": {
     "dev": "parcel src/index.pug --port 3000 --open",
-    "build": "parcel build src/index.pug",
+    "start": "parcel build src/index.pug && node ./server.js",
     "postcss:watch": "postcss src/index.css --dir dist --watch"
   },
   "keywords": [],
