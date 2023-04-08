@@ -5,7 +5,6 @@ mixin chatPreview(data)
         .chat-preview__avatar
             +mbAvatar(data.avatarSrc, data.contact)
         .chat-preview__last-message.message
-            //- вынести в миксин? ↓↓↓
             .message__author=data.contact
             if (data.author=='self')
                 .message__text <span style="font-weight: bolder">Вы:</span> #{data.lastMsg}

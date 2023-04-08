@@ -5,7 +5,7 @@ block vars
     - let mode = "edit"
     
 block profileSummary
-    +mbAvatar("/", "my profile", 130).avatar_editable
+    +mbAvatar("/", "my profile", 130)(name="avatar").avatar_editable
 
 block profileFull
     +mbInput("Почта", "email", "email")(value=profileData.email).input-field_theme-inline
