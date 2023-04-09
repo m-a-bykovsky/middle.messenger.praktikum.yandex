@@ -9,15 +9,16 @@ mixin menuItem(title,ref)
 
 block main
     h1 Макеты
-    ul
-        +menuItem("Авторизация", "./pages/auth/signin.pug")
-        +menuItem("Регистрация", "./pages/auth/signup.pug")
-        +menuItem("Страница 404", "./pages/error/404.pug")
-        +menuItem("Страница 500", "./pages/error/500.pug")
-        +menuItem("Список чатов и лента", "./pages/chat/chat.pug")
-        +menuItem("Профиль", "./pages/profile/profile.pug")
-        +menuItem("Профиль: изменить данные", "./pages/profile/profile__edit-main.pug")
-        +menuItem("Профиль: изменить пароль", "./pages/profile/profile__edit-pswd.pug")
+    nav
+        ul
+            +menuItem("Авторизация", "./pages/auth/signin.pug")
+            +menuItem("Регистрация", "./pages/auth/signup.pug")
+            +menuItem("Страница 404", "./pages/error/404.pug")
+            +menuItem("Страница 500", "./pages/error/500.pug")
+            +menuItem("Список чатов и лента", "./pages/chat/chat.pug")
+            +menuItem("Профиль", "./pages/profile/profile.pug")
+            +menuItem("Профиль: изменить данные", "./pages/profile/profile__edit-main.pug")
+            +menuItem("Профиль: изменить пароль", "./pages/profile/profile__edit-pswd.pug")
 
 block footer   
     h2 middle.messenger.praktikum.yandex

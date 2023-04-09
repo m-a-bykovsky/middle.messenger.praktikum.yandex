@@ -29,6 +29,10 @@ body {
     justify-content: space-between;
 }
 
+.chatlist__header > * {
+    display: inherit;
+}
+
 .chatlist__header a.extra {
     display: inline;
     margin-left: auto;

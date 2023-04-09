@@ -46,7 +46,7 @@ block main
        
         block profileExtras
             if (mode=="read")
-                .profile__settings
+                nav.profile__settings
                     a(href="./profile__edit-main.pug").extra Изменить данные
                     a(href="./profile__edit-pswd.pug").extra Изменить пароль
                     a(href="../auth/signin.pug").warning Выйти
@@ -55,6 +55,6 @@ block main
                     +mbButton.
                         Сохранить
 
-    nav
+    nav.backlink-wrapper
         a(href="/").backlink
             +mbIcon("mb-arrow-left mb-pointer")
