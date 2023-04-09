@@ -2,7 +2,7 @@
 
 .chat-preview {
     display: grid;
-    color: #999;
+    color: var(--color-gray-dark);
     grid-template-areas:
         "avatar message time"
         "avatar message counter";
@@ -13,10 +13,10 @@
     cursor: pointer;
     margin: 5px 0;
     position: relative;
-    box-shadow: 0 12px 0px -10px #fbfbfb,
-        0 13px 0px -10px #eaeaea,
-        0 -12px 0px -10px #fbfbfb,
-        0 -13px 0px -10px #eaeaea
+    box-shadow: 0 12px 0px -10px var(--color-gray-light),
+        0 13px 0px -10px var(--color-gray),
+        0 -12px 0px -10px var(--color-gray-light),
+        0 -13px 0px -10px var(--color-gray)
 }
 
 .chat-preview.current {
@@ -25,7 +25,7 @@
 }
 
 .chat-preview:hover {
-    background-color: #E4EDFD;
+    background-color: var(--color-blue-light);
 }
 
 
@@ -50,7 +50,7 @@
 }
 
 .message__author {
-    color: #1E1E1E;
+    color: var(--color-black);
     font-size: 1.1rem;
     font-weight: bolder;
 }
@@ -67,8 +67,8 @@
     justify-content: center;
     align-items: center;
     justify-self: self-end;
-    background-color: #478cf3;
-    color: #fff;
+    background-color: var(--color-blue);
+    color: var(--color-white);
     border-radius: 50%;
     width: 1.7em;
     height: 1.7em;

@@ -17,8 +17,8 @@ body {
 .chatlist {
     grid-area: side;
     overflow: hidden;
-    background-color: #fbfbfb;
-    box-shadow: inset -2px 0px 0px #fff, inset -3px 0 0 #eaeaea;
+    background-color: var(--color-gray-light);
+    box-shadow: inset -2px 0px 0px var(--color-white), inset -3px 0 0 var(--color-gray);
 }
 
 .chatlist__header {
@@ -48,7 +48,7 @@ body {
 **/
 
 .intro {
-    color: #999;
+    color: var(--color-gray-dark);
     margin: auto;
 }
 
@@ -81,7 +81,7 @@ body {
 **/
 
 .chat__header {
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid var(--color-gray);
     justify-content: inherit;
 }
 
@@ -93,7 +93,7 @@ body {
 }
 
 .contact-info__title {
-    color: #1E1E1E;
+    color: var(--color-black);
     font-size: 1.1rem;
     font-weight: bolder;
 }
@@ -118,7 +118,7 @@ body {
     padding: 1rem;
     max-width: 45%;
     margin-bottom: 10px;
-    background-color: #F8F8F8;
+    background-color: var(--color-gray-light);
     width: fit-content;
     border-radius: 12px;
     word-wrap: break-word;
@@ -135,7 +135,7 @@ body {
 .chat__main .message[data-author="self"] {
     border-bottom-right-radius: 0;
     align-self: flex-end;
-    background-color: #E4EDFD;
+    background-color: var(--color-blue-light);
 }
 
 .message__meta {
@@ -156,21 +156,21 @@ body {
 
 .message__time {
     position: relative;
-    color: #999;
+    color: var(--color-gray-dark);
 }
 
 /* Вложения (изображения) */
 
 .chat__main .message[data-type="attach"] {
-    background-color: #fff;
-    border: 3px solid #F8F8F8;
+    background-color: var(--color-white);
+    border: 3px solid var(--color-gray-light);
     padding: 0;
     max-width: 400px;
     max-height: 300px;
 }
 
 .message[data-type="attach"][data-author="self"] {
-    border-color: #E4EDFD
+    border-color: var(--color-blue-light)
 }
 
 .message[data-type="attach"]>img {
@@ -187,12 +187,12 @@ body {
 }
 
 .message[data-author="self"] .message__time {
-    color: #478cf3
+    color: var(--color-blue)
 }
 
 .message[data-type="attach"] .message__meta {
     padding: 0.3em;
-    background: #e4edfdbb;
+    background: var(--color-blue-light)bb;
     position: absolute;
     border-radius: 5px;
     bottom: 5px;
@@ -205,7 +205,7 @@ body {
 **/
 
 .chat__footer {
-    border-top: 1px solid #eaeaea;
+    border-top: 1px solid var(--color-gray);
 }
 
 .new-message {
@@ -234,5 +234,5 @@ body {
 
 .chat__main:hover::-webkit-scrollbar-thumb,
 .chatlist__content:hover::-webkit-scrollbar-thumb {
-    background-color: #eaeaea;
+    background-color: var(--color-gray);
 }

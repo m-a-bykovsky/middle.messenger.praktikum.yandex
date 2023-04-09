@@ -1,7 +1,7 @@
 /* wip */
 
 .skeleton {
-    background: linear-gradient(90deg,  #478cf3, #a200ff , #478cf3 , #a200ff);
+    background: linear-gradient(90deg,  var(--color-blue), var(--color-purple) , var(--color-blue) , var(--color-purple));
 	background-size: 300% 100%;
 	animation: gradient 5s ease infinite;
     width: 100%;

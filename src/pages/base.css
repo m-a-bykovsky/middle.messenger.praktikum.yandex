@@ -1,4 +1,5 @@
 @import url(./reset.css);
+@import url(./variables.css);
 
 :root {
     font-family: 'Roboto', sans-serif;
@@ -26,6 +27,10 @@ body {
     grid-area: main;
 }
 
+p, span, h1, h3, h3, label {
+    color: var(--color-black)
+}
+
 h2 {
     font-size: 1.33rem;
     font-weight: 600;
@@ -34,7 +39,7 @@ h2 {
 
 a {
     font-size: .9rem;
-    color: #478cf3;
+    color: var(--color-blue);
     text-decoration: none;
     cursor: pointer;
 }
@@ -43,7 +48,7 @@ a:hover{
 }
 
 a.extra {
-    color: #999;
+    color: var(--color-gray-dark);
     padding-right: 15px;
     font-size: 1rem;
     position: relative;
@@ -56,12 +61,14 @@ a.extra::after {
 }
 
 .warning {
-    color: red;
+    color: var(--color-red);
 }
 
 #footer {
     color: transparent;
-    background: linear-gradient(90deg, #478cf3 0%, #a200ff 100%);
+    background: linear-gradient(90deg, var(--color-blue), var(--color-purple), var(--color-blue), var(--color-purple));
+	background-size: 300% 100%;
+	animation: gradient 10s ease infinite;
     background-clip: text;
     font-weight: lighter;
     font-size: smaller;
@@ -71,3 +78,8 @@ a.extra::after {
     padding: 0 10px;
 }
 
+@keyframes gradient {
+	100% {
+		background-position: 100% 0%;
+	}
+}

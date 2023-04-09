@@ -2,12 +2,12 @@
     text-decoration: none;
     border: none;
     cursor: pointer;
-    color: #fff;
-    background-color: #478cf3;
+    color: var(--color-white);
+    background-color: var(--color-blue);
     padding: 1em;
 }
 .button:hover {
-    background-color: #3c84f1;
+    background-color: var(--color-blue_hover);
 }
 
 .button_theme-standard {
