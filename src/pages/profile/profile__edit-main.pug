@@ -1,0 +1,16 @@
+extends ./profile.pug
+
+block vars
+    - let pageTitle="изменить данные"
+    - let mode = "edit"
+    
+block profileSummary
+    +mbAvatar("/", "my profile", 130)(name="avatar").avatar_editable
+
+block profileFull
+    +mbInput("Почта", "email", "email")(value=profileData.email).input-field_theme-inline
+    +mbInput("Логин", "login")(value=profileData.login).input-field_theme-inline
+    +mbInput("Имя", "first_name")(value=profileData.firstName).input-field_theme-inline
+    +mbInput("Фамилия", "second_name")(value=profileData.secondName).input-field_theme-inline
+    +mbInput("Имя в чате", "display_name")(value=profileData.displayName).input-field_theme-inline
+    +mbInput("Телефон", "phone", "tel")(value=profileData.phone).input-field_theme-inline

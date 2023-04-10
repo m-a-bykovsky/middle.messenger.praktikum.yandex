@@ -1,0 +1,60 @@
+extends ../base.pug
+include ../../mixins/input/input.pug
+include ../../mixins/avatar/avatar.pug
+include ../../mixins/button/button.pug
+include ../../mixins/icon/icon.pug
+
+
+block vars
+    - let pageTitle="профиль";
+    - let mode = "read";
+
+
+block layout-style
+    link(rel="stylesheet" href="../../layouts/half-centered.css")
+
+block styles
+    link(rel="stylesheet" href="./profile.css")
+
+block main
+    - 
+        let wrapperElement = (mode=="edit") ? "form" : "div";
+        let profileData = {
+                displayName: "mb",
+                firstName: "Михаил",
+                secondName: "Быковский",
+                login: "mb",
+                email: "m.a.bykovsky@yandex.ru",
+                phone: "+7 912 345 67 89"
+            }; 
+
+    #{wrapperElement}.profile
+        .profile__summary
+            block profileSummary
+                +mbAvatar("/", "my profile", 130)
+                if (mode=="read")
+                    h2 #{profileData.firstName}
+
+        .profile__full
+            block profileFull
+                +mbInput("Почта", "email", "email")(value=profileData.email, disabled).input-field_theme-inline
+                +mbInput("Логин", "login")(value=profileData.login, disabled).input-field_theme-inline
+                +mbInput("Имя", "first_name")(value=profileData.firstName, disabled).input-field_theme-inline
+                +mbInput("Фамилия", "second_name")(value=profileData.secondName, disabled).input-field_theme-inline
+                +mbInput("Имя в чате", "display_name")(value=profileData.displayName, disabled).input-field_theme-inline
+                +mbInput("Телефон", "phone", "tel")(value=profileData.phone, disabled).input-field_theme-inline
+       
+        block profileExtras
+            if (mode=="read")
+                nav.profile__settings
+                    a(href="./profile__edit-main.pug").extra Изменить данные
+                    a(href="./profile__edit-pswd.pug").extra Изменить пароль
+                    a(href="../auth/signin.pug").warning Выйти
+            else
+                .profile__submit
+                    +mbButton.
+                        Сохранить
+
+    nav.backlink-wrapper
+        a(href="/").backlink
+            +mbIcon("mb-arrow-left mb-pointer")

@@ -1,0 +1,7 @@
+body {
+    grid-template-columns: 1fr minmax(450px, 560px) 1fr;
+    grid-template-rows: minmax(95vh, 100%) 1fr;
+    grid-template-areas:
+        ".      main    ."
+        ".      footer  .";
+}

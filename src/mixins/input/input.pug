@@ -1,0 +1,26 @@
+mixin mbInput(title, name, type="input", isReq=true)
+    -
+        let className = (attributes.class) ? `input-field ${attributes.class}` : "input-field input-field_theme-standard";
+        let isDisabled = (attributes.disabled) ? true : false;
+        let fieldValue = (attributes.value) ? attributes.value : '';
+
+    div(class=className)
+        case attributes.class
+            when ("input-field_theme-primary")
+                input(id=name, 
+                    name=name, 
+                    type=type, 
+                    required=isReq, 
+                    placeholder=title, 
+                    disabled=isDisabled, 
+                )
+            default            
+                label(for=name)=title
+                input(id=name, 
+                    name=name, 
+                    type=type, 
+                    required=isReq, 
+                    disabled=isDisabled, 
+                    value=fieldValue
+                )
+

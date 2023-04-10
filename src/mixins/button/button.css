@@ -1,0 +1,21 @@
+.button {
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-white);
+    background-color: var(--color-blue);
+    padding: 1em;
+}
+.button:hover {
+    background-color: var(--color-blue_hover);
+}
+
+.button_theme-standard {
+    font-size: 1.1rem;
+    border-radius: 8px;
+    min-width: 280px;
+}
+
+.button_theme-icon {
+    border-radius: 50%;
+}

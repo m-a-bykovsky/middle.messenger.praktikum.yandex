@@ -1,0 +1,18 @@
+extends ./auth.pug
+
+
+append vars
+    - let pageTitle="у меня будет новый друг"
+    - let authTitle="Регистрация"
+    - let mainButtonTitle="Зарегистрироваться"
+    - let additionalLink="./signin.pug"
+    - let additionalLinkTitle="Войти"
+
+block authFormContent
+    +mbInput("Почта", "email", "email")
+    +mbInput("Логин", "login")
+    +mbInput("Имя", "first_name")
+    +mbInput("Фамилия", "second_name")
+    +mbInput("Телефон", "phone", "tel")
+    +mbInput("Пароль", "password", "password")
+    +mbInput("Пароль (еще разок)", "password-repeat", "password")

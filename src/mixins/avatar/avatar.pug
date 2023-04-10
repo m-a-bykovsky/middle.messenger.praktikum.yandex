@@ -1,0 +1,10 @@
+mixin mbAvatar(src, alt, size=50)   
+    //- mock src
+    -
+        if (!src || src == '/')
+            src=`https://picsum.photos/seed/${alt}/${size}`;
+        let altTitle = alt.replace(/\s/g,'');
+        let avatarName = (attributes.name) ? attributes.name : `${altTitle}_avatar`;
+    
+    .avatar(class=attributes.class, name=avatarName)
+        img(src=src, alt=altTitle, width=size, height=size)

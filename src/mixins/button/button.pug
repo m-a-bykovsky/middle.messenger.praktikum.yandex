@@ -1,0 +1,6 @@
+mixin mbButton(type="button")
+    -
+        let className = (attributes.class) ? `button ${attributes.class}` : "button button_theme-standard";
+
+    button(class=className, type=type)
+        block

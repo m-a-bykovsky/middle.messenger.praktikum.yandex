@@ -1,0 +1,8 @@
+body {
+    grid-template-columns: minmax(200px, 300px) auto;
+    grid-template-rows: calc(100% - 50px) 50px;
+    grid-template-areas:
+        "side   main"
+        "footer main";
+}
+

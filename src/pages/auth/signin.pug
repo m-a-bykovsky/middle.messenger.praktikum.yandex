@@ -1,0 +1,13 @@
+extends ./auth.pug
+
+
+append vars
+    - let pageTitle="о, это ты, привет!"
+    - let authTitle="Вход"
+    - let mainButtonTitle="Авторизоваться"
+    - let additionalLink="./signup.pug"
+    - let additionalLinkTitle="Нет аккаунта?"
+
+block authFormContent
+    +mbInput("Логин", "login")
+    +mbInput("Пароль", "password", "password")
