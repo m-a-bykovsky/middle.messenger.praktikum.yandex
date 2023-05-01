@@ -1,8 +1,8 @@
-@import url(../base.css);
-@import url(../../mixins/chat-preview/chat-preview.css);
-@import url(../../mixins/input/input.css);
-@import url(../../mixins/icon/icon.css);
-@import url(../../mixins/button/button.css);
+@import url("../base.css");
+@import url("../../mixins/chat-preview/chat-preview.css");
+@import url("../../mixins/input/input.css");
+@import url("../../mixins/icon/icon.css");
+@import url("../../mixins/button/button.css");
 
 :root {
     --header-height: 100px;
@@ -18,7 +18,7 @@ body {
     grid-area: side;
     overflow: hidden;
     background-color: var(--color-gray-light);
-    box-shadow: inset -2px 0px 0px var(--color-white), inset -3px 0 0 var(--color-gray);
+    box-shadow: inset -2px 0 0 var(--color-white), inset -3px 0 0 var(--color-gray);
 }
 
 .chatlist__header {
@@ -179,11 +179,11 @@ body {
 }
 
 .message[data-author="self"][data-type="attach"]>img {
-    border-bottom-right-radius: 0px;
+    border-bottom-right-radius: 0;
 }
 
 .message:not([data-author="self"])[data-type="attach"]>img {
-    border-top-left-radius: 0px;
+    border-top-left-radius: 0;
 }
 
 .message[data-author="self"] .message__time {

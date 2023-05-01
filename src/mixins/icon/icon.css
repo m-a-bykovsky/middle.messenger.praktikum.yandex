@@ -1,11 +1,6 @@
-a .mb-icon,
-button .mb-icon {
-    display: flex;
-    margin: 0 auto;
-}
-
 .mb-icon {
     --size: 1em;
+
     display: inline-block;
     width: var(--size);
     height: var(--size);
@@ -13,6 +8,12 @@ button .mb-icon {
     background-repeat: no-repeat;
     background-position: 50%;
 
+}
+
+a .mb-icon,
+button .mb-icon {
+    display: flex;
+    margin: 0 auto;
 }
 
 .mb-pointer {

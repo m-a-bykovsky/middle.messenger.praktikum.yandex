@@ -18,7 +18,9 @@
 	position: relative;
 	cursor: pointer;
 	border-radius: 50%;
+
 	--delay: 500ms;
+
 	box-shadow: 0 0 0 2px var(--color-gray);
 	transition: box-shadow var(--delay);
 }
@@ -44,6 +46,7 @@
 	top: 0;
 	transition: opacity var(--delay);
 }
+
 .avatar_editable:hover::after {
 	background-color: var(--color-black);
 	opacity: .8;

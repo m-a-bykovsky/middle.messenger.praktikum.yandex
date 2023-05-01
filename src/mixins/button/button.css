@@ -6,6 +6,7 @@
     background-color: var(--color-blue);
     padding: 1em;
 }
+
 .button:hover {
     background-color: var(--color-blue_hover);
 }

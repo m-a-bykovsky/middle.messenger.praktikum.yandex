@@ -4,26 +4,13 @@
     width: 100%;
 }
 
-.input-field input:disabled {
-    background-color: inherit;
-}
-
-.input-field input:hover,
-.input-field input:focus {
-    outline: none;
-}
-
 /*
-*   Standart
+*   Standard
 **/
 
 .input-field_theme-standard label {
     font-size: .75rem;
     color: var(--color-gray-dark);
-}
-
-.input-field_theme-standard label+input {
-    margin-bottom: 14px;
 }
 
 .input-field_theme-standard input {
@@ -32,6 +19,11 @@
     padding: 7px 0;
     outline: 0;
 }
+
+.input-field_theme-standard label+input {
+    margin-bottom: 14px;
+}
+
 
 /*
 *   Inline
@@ -43,8 +35,37 @@
     overflow: hidden;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
+.input-field_theme-inline label,
+.input-field_theme-inline input {
+    padding: 10px 0;
+}
+
+.input-field_theme-inline label {
+    width: 100%;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.input-field_theme-inline input {
+    border: none;
+    margin-left: auto;
+    text-align: right;
+    width: fit-content;
+    color: var(--color-gray-dark);
+}
+
 .input-field_theme-inline input:focus {
     color: var(--color-black);
+}
+
+.input-field_theme-inline::before {
+    background-color: var(--color-gray);
+    transform: translate(0);
+}
+
+.input-field_theme-inline::after {
+    background-color: var(--color-blue);
+    transform: translate(100%, 0);
 }
 
 .input-field_theme-inline:not(:last-child)::before,
@@ -57,45 +78,19 @@
     transition: transform 300ms;
 }
 
-.input-field_theme-inline::before {
-    background-color: var(--color-gray);
-    transform: translate(0);
-}
-
 .input-field_theme-inline:not(:last-child):focus-within::before {
     transform: translate(-100%, 0);
-}
-
-.input-field_theme-inline::after {
-    background-color: var(--color-blue);
-    transform: translate(100%, 0);
 }
 
 .input-field_theme-inline:not(:last-child):focus-within::after {
     transform: translate(0);
 }
 
-.input-field_theme-inline label,
-.input-field_theme-inline input {
-    padding: 10px 0;
-}
-
-.input-field_theme-inline label {
-    width: 100%;
-}
-
-.input-field_theme-inline input {
-    border: none;
-    margin-left: auto;
-    text-align: right;
-    width: fit-content;
-    color: var(--color-gray-dark);
-}
-
 /*
 *   Primary
 **/
 
+/* stylelint-disable-next-line no-descending-specificity */
 .input-field_theme-primary input {
     padding: 10px;
     padding-left: 20px;
@@ -113,6 +108,9 @@
 .input-field_theme-primary input[type="search"] {
     --bg: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' id='search'%3e%3cg fill='none' fill-rule='evenodd' stroke='%23999' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' transform='translate(1 1)'%3e%3ccircle cx='7.5' cy='7.5' r='7.5'%3e%3c/circle%3e%3cpath d='M18 18l-5.2-5.2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
     --bg-transparent: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' id='search'%3e%3cg fill='none' fill-rule='evenodd' stroke='transparent' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' transform='translate(1 1)'%3e%3ccircle cx='7.5' cy='7.5' r='7.5'%3e%3c/circle%3e%3cpath d='M18 18l-5.2-5.2'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
+    
+    background-image: var(--bg-transparent);
+    padding-left: 30px;
 }
 
 .input-field_theme-primary input[type="search"],
@@ -123,10 +121,6 @@
     transition: background-image 100ms, color 100ms;
 }
 
-.input-field_theme-primary input[type="search"] {
-    background-image: var(--bg-transparent);
-    padding-left: 30px;
-}
 
 .input-field_theme-primary input[type="search"]:focus,
 .input-field_theme-primary input[type="search"]:active,
@@ -141,10 +135,7 @@
     padding-left: 30px;
     position: absolute;
     margin: auto;
-    top: 0;
-    left: -30px;
-    right: 0;
-    bottom: 0;
+    inset: 0 0 0 -30px;
     width: fit-content;
     height: 1em;
 }
@@ -156,4 +147,13 @@
 
 .input-field_theme-primary input[type="search"]::-webkit-search-cancel-button {
     display: none;
+}
+
+.input-field input:disabled {
+    background-color: inherit;
+}
+
+.input-field input:hover,
+.input-field input:focus {
+    outline: none;
 }

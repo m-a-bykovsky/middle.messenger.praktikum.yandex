@@ -1,6 +1,6 @@
-@import url(../base.css);
-@import url(../../mixins/input/input.css);
-@import url(../../mixins/button/button.css);
+@import url("../base.css");
+@import url("../../mixins/input/input.css");
+@import url("../../mixins/button/button.css");
 
 #main {
     justify-content: center;

@@ -1,6 +1,6 @@
-const a = 'Hello, Praktikum!';
+const b = 'Hello, Praktikum!';
 
-console.log(a);
+console.log(b);
 
 // const helloYou = (name: string) => {
 //   name = 'you' || name;
