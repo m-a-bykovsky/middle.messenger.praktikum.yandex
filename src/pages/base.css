@@ -1,8 +1,8 @@
-@import url(./reset.css);
-@import url(./variables.css);
+@import url("./reset.css");
+@import url("./variables.css");
 
 :root {
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, sans-serif;
     font-weight: normal;
 }
 
@@ -27,7 +27,8 @@ body {
     grid-area: main;
 }
 
-p, span,
+p,
+span,
 h1,
 h3,
 h3,
@@ -70,7 +71,6 @@ a.extra::after {
 }
 
 #footer {
-    bolor: #33z;
     color: transparent;
     background: linear-gradient(90deg, var(--color-blue), var(--color-purple), var(--color-blue), var(--color-purple));
     background-size: 300% 100%;
