@@ -23,12 +23,11 @@ body {
     flex-direction: column;
 }
 
-#main {
+#main{
     grid-area: main;
 }
 
-p,
-span,
+p, span,
 h1,
 h3,
 h3,
@@ -71,6 +70,7 @@ a.extra::after {
 }
 
 #footer {
+    bolor: #33z;
     color: transparent;
     background: linear-gradient(90deg, var(--color-blue), var(--color-purple), var(--color-blue), var(--color-purple));
     background-size: 300% 100%;
