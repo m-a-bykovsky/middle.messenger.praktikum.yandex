@@ -27,7 +27,12 @@ body {
     grid-area: main;
 }
 
-p, span, h1, h3, h3, label {
+p,
+span,
+h1,
+h3,
+h3,
+label {
     color: var(--color-black)
 }
 
@@ -43,7 +48,8 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
-a:hover{
+
+a:hover {
     text-decoration: underline;
 }
 
@@ -67,8 +73,8 @@ a.extra::after {
 #footer {
     color: transparent;
     background: linear-gradient(90deg, var(--color-blue), var(--color-purple), var(--color-blue), var(--color-purple));
-	background-size: 300% 100%;
-	animation: gradient 10s ease infinite;
+    background-size: 300% 100%;
+    animation: gradient 10s ease infinite;
     background-clip: text;
     font-weight: lighter;
     font-size: smaller;
@@ -79,7 +85,7 @@ a.extra::after {
 }
 
 @keyframes gradient {
-	100% {
-		background-position: 100% 0%;
-	}
+    100% {
+        background-position: 100% 0%;
+    }
 }
