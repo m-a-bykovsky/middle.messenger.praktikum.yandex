@@ -1,0 +1,11 @@
+/*
+* Переписка
+**/
+
+.chat__main {
+    flex-direction: column-reverse;
+    margin-top: auto;
+    overflow-y: scroll;
+    padding: 30px 7px 30px 0;
+    margin-right: 10px;
+}

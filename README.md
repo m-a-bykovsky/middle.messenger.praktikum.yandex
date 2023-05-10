@@ -14,8 +14,13 @@
     * список чатов и лента;
     * профиля: просмотра информации и редактирование данных;
 * приложение развернуто на Netlify, настроен автоматический деплой [![Netlify Status](https://api.netlify.com/api/v1/badges/2f644a2d-db60-403a-bffe-90a4b6258e02/deploy-status)](https://app.netlify.com/sites/fascinating-sopapillas/deploys).
+### Sprint 2
+* Добавлен TypeScript;
+* Настроены ESLint, Stylelint (AirBnB);
+* Добавлен Husky + lint-staged для запуска линтеров при попытке комита.
 
 ## Установка
 * `npm run dev` — запуск версии для разработчика,
+* `npm run lint:fix` – запуск eslint + stylelint,
 * `npm run build` — запуск сборки статики,
-* `npm run start` — запуск сборки статики и запуск Express на localhost:3000.
+* `npm run start` — запуск сборки статики, и запуск Express на localhost:3000.

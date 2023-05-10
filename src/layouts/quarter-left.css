@@ -1,8 +1,9 @@
-body {
-    grid-template-columns: minmax(200px, 300px) auto;
-    grid-template-rows: calc(100% - 50px) 50px;
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
+#app {
     grid-template-areas:
         "side   main"
         "footer main";
+    grid-template-columns: minmax(200px, 300px) auto;
+    grid-template-rows: calc(100% - 50px) 50px;
 }
 

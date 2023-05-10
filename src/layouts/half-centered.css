@@ -1,5 +1,5 @@
 /* stylelint-disable declaration-block-no-redundant-longhand-properties */
-body {
+#app {
     grid-template-areas:
         ".      main    ."
         ".      footer  .";

@@ -1,0 +1,20 @@
+.message__meta {
+    float: right;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.message__meta>* {
+    font-size: .9rem;
+}
+
+.message__status {
+    margin-right: 5px;
+    display: flex;
+}
+
+.message__time {
+    position: relative;
+    color: var(--color-gray-dark);
+}

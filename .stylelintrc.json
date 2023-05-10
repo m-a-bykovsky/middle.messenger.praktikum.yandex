@@ -1,6 +1,6 @@
 {
     "extends": "stylelint-config-standard",
-    "ignoreFiles": ["static/**/*.css", "dist/**/*.css"],
+    "ignoreFiles": ["static/**/*.css", "dist/**/*.css", "README.md"],
     "rules": {
       "color-no-invalid-hex": true,
       "custom-property-pattern": "(--)*",

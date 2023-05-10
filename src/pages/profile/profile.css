@@ -1,8 +1,4 @@
-@import url("../base.css");
-@import url("../../mixins/input/input.css");
-@import url("../../mixins/icon/icon.css");
-@import url("../../mixins/avatar/avatar.css");
-@import url("../../mixins/button/button.css");
+@import url("../../index.css");
 
 * {
     font-size: 13px;

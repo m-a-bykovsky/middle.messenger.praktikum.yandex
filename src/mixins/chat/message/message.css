@@ -1,0 +1,67 @@
+/* Сообщение */
+
+.chat__main .message {
+    position: relative;
+    padding: 1rem;
+    max-width: 45%;
+    margin-bottom: 10px;
+    background-color: var(--color-gray-light);
+    width: fit-content;
+    border-radius: 12px;
+    word-wrap: break-word;
+}
+
+.chat__main .message:first-child {
+    margin-bottom: 0;
+}
+
+.chat__main .message:not([data-self="true"]) {
+    border-top-left-radius: 0;
+}
+
+.chat__main .message[data-self="true"] {
+    border-bottom-right-radius: 0;
+    align-self: flex-end;
+    background-color: var(--color-blue-light);
+}
+
+/* Вложения (изображения) */
+
+.chat__main .message[data-type="attach"] {
+    background-color: var(--color-white);
+    border: 3px solid var(--color-gray-light);
+    padding: 0;
+    max-width: 400px;
+    max-height: 300px;
+}
+
+.message[data-type="attach"][data-self="true"] {
+    border-color: var(--color-blue-light)
+}
+
+.message[data-type="attach"]>img {
+    max-height: 100%;
+    border-radius: 9px;
+}
+
+.message[data-self="true"][data-type="attach"]>img {
+    border-bottom-right-radius: 0;
+}
+
+.message:not([data-self="true"])[data-type="attach"]>img {
+    border-top-left-radius: 0;
+}
+
+.message[data-self="true"] .message__time {
+    color: var(--color-blue)
+}
+
+.message[data-type="attach"] .message__meta {
+    padding: 0.3em;
+    background: var(--color-blue-light);
+    position: absolute;
+    border-radius: 5px;
+    bottom: 5px;
+    top: unset;
+    right: 5px;
+}
