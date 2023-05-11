@@ -20,17 +20,17 @@ type PreviewProps = {
 } & BlockProps;
 
 export class Preview extends Block {
-  constructor(props: PreviewProps) {
-    super({
-      avatar: new Avatar({
-        alt: props.avatarAlt,
-        src: props.avatarSrc,
-      }),
-      ...props
-    });
-  }
+    constructor(props: PreviewProps) {
+        super({
+            avatar: new Avatar({
+                alt: props.avatarAlt,
+                src: props.avatarSrc,
+            }),
+            ...props
+        });
+    }
 
-  render() {
-    return template;
-  }
+    render() {
+        return template;
+    }
 }

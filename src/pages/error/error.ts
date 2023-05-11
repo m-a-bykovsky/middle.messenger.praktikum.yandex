@@ -13,11 +13,11 @@ export type ErrorPageProps = {
 }
 
 export class ErrorPage extends Block {
-  constructor({ ...props }: ErrorPageProps) {
-    super(props);
-  }
+    constructor({ ...props }: ErrorPageProps) {
+        super(props);
+    }
 
-  render(): string {
-    return template;
-  }
+    render(): string {
+        return template;
+    }
 }

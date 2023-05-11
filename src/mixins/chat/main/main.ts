@@ -13,22 +13,22 @@ import './main.css';
 import { chatData } from '../../../pages/chat/chat-mock';
 
 export class Main extends Block {
-  constructor(props?: BlockProps) {
-    super({
-      feed: chatData.reduce((prev, cur) => (prev
+    constructor(props?: BlockProps) {
+        super({
+            feed: chatData.reduce((prev, cur) => (prev
                     + new Message({
-                      author: cur.author,
-                      text: cur.text,
-                      attachSrc: cur.attachSrc,
-                      status: cur.status,
-                      time: cur.time,
+                        author: cur.author,
+                        text: cur.text,
+                        attachSrc: cur.attachSrc,
+                        status: cur.status,
+                        time: cur.time,
                     }).getCompiledElement()
-      ), ''),
-      ...props
-    });
-  }
+            ), ''),
+            ...props
+        });
+    }
 
-  render(): string {
-    return template;
-  }
+    render(): string {
+        return template;
+    }
 }

@@ -17,20 +17,20 @@ import '../../layouts/quarter-left.css';
 import { chatData } from './chat-mock';
 
 export class ChatPage extends Block {
-  constructor(props?: BlockProps) {
-    const noChatData:boolean = chatData.length === 0;
+    constructor(props?: BlockProps) {
+        const noChatData:boolean = chatData.length === 0;
 
-    super({
-      noChatData,
-      side: new Side(),
-      header: new Header(),
-      main: new Main(),
-      footer: new Footer(),
-      ...props,
-    });
-  }
+        super({
+            noChatData,
+            side: new Side(),
+            header: new Header(),
+            main: new Main(),
+            footer: new Footer(),
+            ...props,
+        });
+    }
 
-  render(): string {
-    return template;
-  }
+    render(): string {
+        return template;
+    }
 }

@@ -1,4 +1,4 @@
 export {
-  Input,
-  InputTheme
+    Input,
+    InputTheme
 } from './input';

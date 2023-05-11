@@ -18,15 +18,15 @@ type ButtonProps = {
 }
 
 export class Button extends Block {
-  constructor({ ...props }: ButtonProps) {
-    super({
-      theme: ButtonTheme.standard,
-      type: 'button',
-      ...props
-    });
-  }
+    constructor({ ...props }: ButtonProps) {
+        super({
+            theme: ButtonTheme.standard,
+            type: 'button',
+            ...props
+        });
+    }
 
-  render() {
-    return template;
-  }
+    render() {
+        return template;
+    }
 }

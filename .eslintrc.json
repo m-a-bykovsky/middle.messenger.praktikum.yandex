@@ -16,15 +16,25 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "max-len": ["error", {"code": 100}],
-        "linebreak-style": ["error", "windows"],
-        "comma-dangle": ["error", "only-multiline"],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "comma-dangle": [
+            "error",
+            "only-multiline"
+        ],
         "import/no-unresolved": 0,
         "import/extensions": 0,
         "no-underscore-dangle": 0,
-        "class-methods-use-this" : "off",
-        "import/prefer-default-export": ["off"],
-        "no-unused-vars":"off"
+        "class-methods-use-this": "off",
+        "import/prefer-default-export": [
+            "off"
+        ],
+        "no-unused-vars": "off",
+        "indent": [
+            "error",
+            4
+        ]
     }
 }
- 

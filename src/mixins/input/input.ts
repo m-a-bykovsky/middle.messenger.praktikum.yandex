@@ -30,17 +30,17 @@ type InputProps = {
 } & BlockProps;
 
 export class Input extends Block {
-  constructor({ ...props }: InputProps) {
-    super({
-      id: props.name,
-      for: props.name,
-      type: 'input',
-      theme: InputTheme.standard,
-      ...props
-    });
-  }
+    constructor({ ...props }: InputProps) {
+        super({
+            id: props.name,
+            for: props.name,
+            type: 'input',
+            theme: InputTheme.standard,
+            ...props
+        });
+    }
 
-  render() {
-    return template;
-  }
+    render() {
+        return template;
+    }
 }

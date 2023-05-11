@@ -1,4 +1,4 @@
 export {
-  Button,
-  ButtonTheme
+    Button,
+    ButtonTheme
 } from './button';

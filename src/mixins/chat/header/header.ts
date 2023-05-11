@@ -14,22 +14,22 @@ import './header.css';
 import { currentChat } from '../../../pages/chat/chat-mock';
 
 export class Header extends Block {
-  constructor(props?: BlockProps) {
-    super({
-      author: currentChat.author,
-      avatar: new Avatar({
-        alt: currentChat.author,
-        src: currentChat.avatarSrc,
-        size: 35
-      }),
-      moreIcon: new Icon({
-        iconClass: 'mb-more mb-3x mb-pointer'
-      }),
-      ...props
-    });
-  }
+    constructor(props?: BlockProps) {
+        super({
+            author: currentChat.author,
+            avatar: new Avatar({
+                alt: currentChat.author,
+                src: currentChat.avatarSrc,
+                size: 35
+            }),
+            moreIcon: new Icon({
+                iconClass: 'mb-more mb-3x mb-pointer'
+            }),
+            ...props
+        });
+    }
 
-  render(): string {
-    return template;
-  }
+    render(): string {
+        return template;
+    }
 }

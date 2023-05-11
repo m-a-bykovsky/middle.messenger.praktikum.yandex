@@ -12,27 +12,27 @@ import { Button, ButtonTheme } from '../../button';
 import './footer.css';
 
 export class Footer extends Block {
-  constructor(props?: BlockProps) {
-    super({
-      attachIcon: new Icon({
-        iconClass: 'mb-attach mb-3x mb-pointer'
-      }),
-      newMessageInput: new Input({
-        name: 'newMsg',
-        title: 'Сообщение',
-        theme: InputTheme.primary
-      }),
-      sendMessageButton: new Button({
-        text: new Icon({
-          iconClass: 'mb-arrow-right mb-pointer'
-        }),
-        theme: ButtonTheme.icon
-      }),
-      ...props,
-    });
-  }
+    constructor(props?: BlockProps) {
+        super({
+            attachIcon: new Icon({
+                iconClass: 'mb-attach mb-3x mb-pointer'
+            }),
+            newMessageInput: new Input({
+                name: 'newMsg',
+                title: 'Сообщение',
+                theme: InputTheme.primary
+            }),
+            sendMessageButton: new Button({
+                text: new Icon({
+                    iconClass: 'mb-arrow-right mb-pointer'
+                }),
+                theme: ButtonTheme.icon
+            }),
+            ...props,
+        });
+    }
 
-  render(): string {
-    return template;
-  }
+    render(): string {
+        return template;
+    }
 }

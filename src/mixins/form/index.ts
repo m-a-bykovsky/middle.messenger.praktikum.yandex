@@ -1,6 +1,6 @@
 export {
-  SignInForm,
-  SignUpForm,
-  ProfileMainForm,
-  ProfileSecurityForm
+    SignInForm,
+    SignUpForm,
+    ProfileMainForm,
+    ProfileSecurityForm
 } from './form';

@@ -10,11 +10,11 @@ type IconProps = {
 }
 
 export class Icon extends Block {
-  constructor({ ...props }: IconProps) {
-    super(props);
-  }
+    constructor({ ...props }: IconProps) {
+        super(props);
+    }
 
-  render() {
-    return template;
-  }
+    render() {
+        return template;
+    }
 }

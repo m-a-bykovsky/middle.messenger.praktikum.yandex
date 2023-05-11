@@ -18,21 +18,21 @@ type MessageProps = {
 } & BlockProps
 
 export class Message extends Block {
-  constructor(props: MessageProps) {
-    const isSelf = (props.author === 'self') ? 'true' : 'false';
+    constructor(props: MessageProps) {
+        const isSelf = (props.author === 'self') ? 'true' : 'false';
 
-    super({
-      meta: new MessageMeta({
-        isSelf,
-        status: props.status as MessageStatusIcon,
-        time: props.time,
-      }),
-      isSelf: isSelf as string,
-      ...props
-    });
-  }
+        super({
+            meta: new MessageMeta({
+                isSelf,
+                status: props.status as MessageStatusIcon,
+                time: props.time,
+            }),
+            isSelf: isSelf as string,
+            ...props
+        });
+    }
 
-  render(): string {
-    return template;
-  }
+    render(): string {
+        return template;
+    }
 }

@@ -1,4 +1,4 @@
 export {
-  MessageMeta,
-  MessageStatusIcon
+    MessageMeta,
+    MessageStatusIcon
 } from './message-meta';

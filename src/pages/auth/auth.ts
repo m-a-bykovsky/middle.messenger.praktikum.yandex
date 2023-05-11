@@ -22,41 +22,41 @@ type AuthFormProps = {
 }
 
 export class SignInPage extends Block {
-  constructor(props?: AuthFormProps) {
-    super({
-      ...props,
-      title: 'Вход',
-      authForm: new SignInForm(),
-      submitButton: new Button({
-        text: 'Авторизоваться',
-        type: 'submit'
-      }),
-      additionalLink: '/',
-      additionalLinkTitle: 'Нет аккаунта?'
-    });
-  }
+    constructor(props?: AuthFormProps) {
+        super({
+            ...props,
+            title: 'Вход',
+            authForm: new SignInForm(),
+            submitButton: new Button({
+                text: 'Авторизоваться',
+                type: 'submit'
+            }),
+            additionalLink: '/',
+            additionalLinkTitle: 'Нет аккаунта?'
+        });
+    }
 
-  render(): string {
-    return template;
-  }
+    render(): string {
+        return template;
+    }
 }
 
 export class SignUpPage extends Block {
-  constructor(props?: AuthFormProps) {
-    super({
-      ...props,
-      title: 'Регистрация',
-      authForm: new SignUpForm(),
-      submitButton: new Button({
-        text: 'Зарегистрироваться',
-        type: 'submit'
-      }),
-      additionalLink: '/',
-      additionalLinkTitle: 'Войти'
-    });
-  }
+    constructor(props?: AuthFormProps) {
+        super({
+            ...props,
+            title: 'Регистрация',
+            authForm: new SignUpForm(),
+            submitButton: new Button({
+                text: 'Зарегистрироваться',
+                type: 'submit'
+            }),
+            additionalLink: '/',
+            additionalLinkTitle: 'Войти'
+        });
+    }
 
-  render(): string {
-    return template;
-  }
+    render(): string {
+        return template;
+    }
 }

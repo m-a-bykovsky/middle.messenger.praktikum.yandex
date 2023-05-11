@@ -22,17 +22,17 @@ type MessageMetaProps = {
 } & BlockProps
 
 export class MessageMeta extends Block {
-  constructor(props: MessageMetaProps) {
-    super({
-      statusIcon: new Icon({
-        // @ts-ignore
-        iconClass: MessageStatusIcon[props.status]
-      }),
-      ...props,
-    });
-  }
+    constructor(props: MessageMetaProps) {
+        super({
+            statusIcon: new Icon({
+                // @ts-ignore
+                iconClass: MessageStatusIcon[props.status]
+            }),
+            ...props,
+        });
+    }
 
-  render(): string {
-    return template;
-  }
+    render(): string {
+        return template;
+    }
 }
