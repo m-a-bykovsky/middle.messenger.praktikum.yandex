@@ -1,5 +1,6 @@
 const template = `
-!=side
+side#side
+    !=side
 main#main
     if (noChatData)
         .intro Выберите чат, чтобы отправить сообщение

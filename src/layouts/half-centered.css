@@ -1,8 +1,0 @@
-/* stylelint-disable declaration-block-no-redundant-longhand-properties */
-#app {
-    grid-template-areas:
-        ".      main    ."
-        ".      footer  .";
-    grid-template-columns: 1fr minmax(450px, 560px) 1fr;
-    grid-template-rows: minmax(95vh, 100%) 1fr;
-}

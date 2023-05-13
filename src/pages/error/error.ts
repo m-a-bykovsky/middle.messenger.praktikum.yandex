@@ -1,20 +1,23 @@
-import Block from '../../services/Block';
+import Page, { PageTemplate } from '../../services/Page';
 
 /* templates */
 import template from './errors.pug';
 
 /* styles */
 import './error.css';
-import '../../layouts/third-centered.css';
 
 export type ErrorPageProps = {
     code: string | number,
     message: string,
 }
 
-export class ErrorPage extends Block {
+export class ErrorPage extends Page {
     constructor({ ...props }: ErrorPageProps) {
-        super(props);
+        super(
+            'спецбригада уже в пути',
+            PageTemplate.secondary,
+            props
+        );
     }
 
     render(): string {

@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-import Block from '../../services/Block';
+import Page, { PageTemplate } from '../../services/Page';
 
 /* templates */
 import template from './auth.pug';
@@ -10,8 +10,6 @@ import { SignInForm, SignUpForm } from '../../mixins/form';
 
 /* styles */
 import './auth.css';
-import '../../layouts/modal.css';
-import '../../layouts/third-centered.css';
 
 type AuthFormProps = {
     title: string,
@@ -21,19 +19,23 @@ type AuthFormProps = {
     additionalLinkTitle: string,
 }
 
-export class SignInPage extends Block {
+export class SignInPage extends Page {
     constructor(props?: AuthFormProps) {
-        super({
-            ...props,
-            title: 'Вход',
-            authForm: new SignInForm(),
-            submitButton: new Button({
-                text: 'Авторизоваться',
-                type: 'submit'
-            }),
-            additionalLink: '/',
-            additionalLinkTitle: 'Нет аккаунта?'
-        });
+        super(
+            'о, это ты, привет!',
+            PageTemplate.tertiary,
+            {
+                ...props,
+                title: 'Вход',
+                authForm: new SignInForm(),
+                submitButton: new Button({
+                    text: 'Авторизоваться',
+                    type: 'submit'
+                }),
+                additionalLink: '/',
+                additionalLinkTitle: 'Нет аккаунта?'
+            }
+        );
     }
 
     render(): string {
@@ -41,19 +43,23 @@ export class SignInPage extends Block {
     }
 }
 
-export class SignUpPage extends Block {
+export class SignUpPage extends Page {
     constructor(props?: AuthFormProps) {
-        super({
-            ...props,
-            title: 'Регистрация',
-            authForm: new SignUpForm(),
-            submitButton: new Button({
-                text: 'Зарегистрироваться',
-                type: 'submit'
-            }),
-            additionalLink: '/',
-            additionalLinkTitle: 'Войти'
-        });
+        super(
+            'у меня будет новый друг',
+            PageTemplate.tertiary,
+            {
+                ...props,
+                title: 'Регистрация',
+                authForm: new SignUpForm(),
+                submitButton: new Button({
+                    text: 'Зарегистрироваться',
+                    type: 'submit'
+                }),
+                additionalLink: '/',
+                additionalLinkTitle: 'Войти'
+            }
+        );
     }
 
     render(): string {

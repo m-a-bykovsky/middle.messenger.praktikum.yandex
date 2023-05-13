@@ -1,5 +1,5 @@
 const template = `
-block main
+main#main
     .auth.modal
         h1.auth__title=title
         form.auth__form
