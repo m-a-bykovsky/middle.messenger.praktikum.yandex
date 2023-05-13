@@ -1,5 +1,5 @@
 const template = `
-.error
+main#main.error
     h1.error__title=code
     p.error__message=message
     nav

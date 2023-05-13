@@ -32,15 +32,15 @@ export class Side extends Block {
                 className: 'current',
             }),
             others: chatlistData.reduce((prev, cur) => (prev
-                    + new Preview({
-                        avatarAlt: cur.author,
-                        avatarSrc: cur.avatarSrc,
-                        msgAuthor: cur.author,
-                        msgLast: cur.lastMsg,
-                        msgUpdateTime: cur.updateTime,
-                        isSelf: cur.isSelf,
-                        msgNewCounter: cur.newMsgCounter,
-                    }).getCompiledElement()
+                + new Preview({
+                    avatarAlt: cur.author,
+                    avatarSrc: cur.avatarSrc,
+                    msgAuthor: cur.author,
+                    msgLast: cur.lastMsg,
+                    msgUpdateTime: cur.updateTime,
+                    isSelf: cur.isSelf,
+                    msgNewCounter: cur.newMsgCounter,
+                }).getCompiledElement()
             ), ''),
             ...props,
         });

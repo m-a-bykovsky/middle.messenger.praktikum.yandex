@@ -12,15 +12,14 @@ export class Avatar extends Block {
     constructor({ ...props }: AvatarProps) {
         const name = `${props.alt.replace(/\s/g, '')}_avatar`;
         const defaultSize = (props.size) ? props.size : 50;
-        const mockSrc = (typeof props.src === 'undefined')
-            ? `https://loremflickr.com/${props.size}/${props.size}?random=10&hash=${Math.random() * 100}`
+        const imgSrc = (typeof props.src === 'undefined')
+            ? `https://loremflickr.com/${defaultSize}/${defaultSize}?random=10&hash=${Math.random() * 100}`
             : props.src;
-
         super({
-            size: defaultSize,
-            src: mockSrc,
             ...props,
             name,
+            src: imgSrc,
+            size: defaultSize,
         });
     }
 

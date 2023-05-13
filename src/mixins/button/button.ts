@@ -12,7 +12,7 @@ export enum ButtonTheme {
 }
 
 type ButtonProps = {
-    text: string|Block;
+    text: string | Block;
     theme?: ButtonTheme;
     type?: ButtonTypes;
 }

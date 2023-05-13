@@ -1,4 +1,5 @@
-import Block, { BlockProps } from '../../services/Block';
+import { BlockProps } from '../../services/Block';
+import Page, { PageTemplate } from '../../services/Page';
 
 /* templates */
 import template from './profile.pug';
@@ -11,7 +12,6 @@ import { ProfileMainForm, ProfileSecurityForm } from '../../mixins/form';
 
 /* styles */
 import './profile.css';
-import '../../layouts/half-centered.css';
 
 /* mock */
 const profileData = {
@@ -27,31 +27,35 @@ type ProfilePageProps = {
     mode: 'read' | 'write',
 } & BlockProps;
 
-export class ProfilePage extends Block {
+export class ProfilePage extends Page {
     constructor(props: ProfilePageProps) {
         const wrapperElement = (props.isDisabled) ? 'form' : 'div';
         const isDisabled = (props.mode === 'read');
-        super({
-            wrapperElement,
-            avatar: new Avatar({
-                alt: 'my profile',
-                size: 130,
-                className: (!isDisabled) ? 'avatar_editable' : ''
-            }),
-            profileMain: new ProfileMainForm({
-                isDisabled,
-                mockData: profileData,
-            }),
-            profileSecurity: new ProfileSecurityForm(),
-            submitButton: new Button({
-                text: 'Сохранить',
-            }),
-            backlinkIcon: new Icon({
-                iconClass: 'mb-arrow-left mb-pointer'
-            }),
-            profileData,
-            ...props
-        });
+        super(
+            'а тут все про тебя, ага',
+            PageTemplate.secondary,
+            {
+                wrapperElement,
+                avatar: new Avatar({
+                    alt: 'my profile',
+                    size: 130,
+                    className: (!isDisabled) ? 'avatar_editable' : ''
+                }),
+                profileMain: new ProfileMainForm({
+                    isDisabled,
+                    mockData: profileData,
+                }),
+                profileSecurity: new ProfileSecurityForm(),
+                submitButton: new Button({
+                    text: 'Сохранить',
+                }),
+                backlinkIcon: new Icon({
+                    iconClass: 'mb-arrow-left mb-pointer'
+                }),
+                profileData,
+                ...props
+            }
+        );
     }
 
     render(): string {

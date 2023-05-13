@@ -30,7 +30,6 @@ export class GimmeResponse {
         options.timeout
     );
 
-    // PUT, POST, DELETE
     put = (url: string, options: GimmeOptionProps = {}) => this._request(
         url,
         { ...options, method: METHODS.PUT },
@@ -49,9 +48,6 @@ export class GimmeResponse {
         options.timeout
     );
 
-    // options:
-    // headers — obj
-    // data — obj
     private _request = (url: string, options: GimmeOptionProps = {}, timeout = 5000) => {
         const { headers = {}, method, data } = options;
 

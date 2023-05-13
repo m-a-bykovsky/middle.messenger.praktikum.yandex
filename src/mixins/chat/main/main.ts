@@ -16,13 +16,13 @@ export class Main extends Block {
     constructor(props?: BlockProps) {
         super({
             feed: chatData.reduce((prev, cur) => (prev
-                    + new Message({
-                        author: cur.author,
-                        text: cur.text,
-                        attachSrc: cur.attachSrc,
-                        status: cur.status,
-                        time: cur.time,
-                    }).getCompiledElement()
+                + new Message({
+                    author: cur.author,
+                    text: cur.text,
+                    attachSrc: cur.attachSrc,
+                    status: cur.status,
+                    time: cur.time,
+                }).getCompiledElement()
             ), ''),
             ...props
         });

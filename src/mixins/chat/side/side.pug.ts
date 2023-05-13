@@ -1,8 +1,8 @@
 const template = `
-side.chatlist
+side#side.chatlist
     .chatlist__header
         nav 
-            a.extra(href="../profile/profile.pug") Профиль 
+            a.extra(href="/") Профиль 
         !=searchInput
     .chatlist__content
         !=current

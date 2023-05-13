@@ -13,8 +13,8 @@ const template = `
         
         if (mode=="read")
             nav.profile__settings
-                a(href="./profile__edit-main.pug").extra Изменить данные
-                a(href="../auth/signin.pug").warning Выйти
+                a(href="/").extra Изменить данные
+                a(href="/").warning Выйти
         else
             .profile__submit
                 !=submitButton

@@ -1,5 +1,6 @@
 @import url("./pages/reset.css");
 @import url("./pages/variables.css");
+@import url("./pages/templates.css");
 
 :root {
     font-family: Roboto, sans-serif;
