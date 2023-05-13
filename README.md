@@ -1,7 +1,7 @@
 ## Что это?
 Проектная работа по созданию мессенджера в рамках [курса «Мидл фронтенд-разработчик»](https://practicum.yandex.ru/middle-frontend/) от Яндекс.Практикум.
-* [Макет](https://www.figma.com/file/2UKVA4ybFUaWmidl4yk7kx/middle.messenger.praktikum.yandex?node-id=0-1&t=MBNZsXKaNpo7Qw0o-0).
-* [fascinating-sopapillas.netlify.app](https://fascinating-sopapillas.netlify.app/)
+* [Макет] в Figma: (https://www.figma.com/file/2UKVA4ybFUaWmidl4yk7kx/middle.messenger.praktikum.yandex?node-id=0-1&t=MBNZsXKaNpo7Qw0o-0).
+* Поект на Netlify: [fascinating-sopapillas.netlify.app](https://fascinating-sopapillas.netlify.app/).
 
 ## Этапы работы
 ### Sprint 1 [![Tests](https://github.com/m-a-bykovsky/middle.messenger.praktikum.yandex/actions/workflows/tests.yml/badge.svg?branch=sprint_1)](https://github.com/m-a-bykovsky/middle.messenger.praktikum.yandex/actions/workflows/tests.yml)
@@ -18,6 +18,8 @@
 * Добавлен TypeScript;
 * Настроены ESLint, Stylelint (AirBnB);
 * Добавлен Husky + lint-staged для запуска линтеров при попытке комита.
+* Добавден базовые классы для создания миксинов и страниц.
+* Добавлен класс GimmeResponse для работы с запросами на основе API XMLHttpRequest.
 
 ## Установка
 * `npm run dev` — запуск версии для разработчика,
