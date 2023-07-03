@@ -12,6 +12,7 @@ import { ProfileMainForm, ProfileSecurityForm } from '../../mixins/form';
 
 /* styles */
 import './profile.css';
+import { consoleFormData } from '../../utils/consoleFormData';
 
 /* mock */
 const profileData = {
@@ -29,7 +30,7 @@ type ProfilePageProps = {
 
 export class ProfilePage extends Page {
     constructor(props: ProfilePageProps) {
-        const wrapperElement = (props.isDisabled) ? 'form' : 'div';
+        const wrapperElement = (props.isDisabled) ? 'div' : 'form';
         const isDisabled = (props.mode === 'read');
         super(
             'а тут все про тебя, ага',
@@ -48,6 +49,9 @@ export class ProfilePage extends Page {
                 profileSecurity: new ProfileSecurityForm(),
                 submitButton: new Button({
                     text: 'Сохранить',
+                    events: {
+                        click: () => consoleFormData(),
+                    }
                 }),
                 backlinkIcon: new Icon({
                     iconClass: 'mb-arrow-left mb-pointer'

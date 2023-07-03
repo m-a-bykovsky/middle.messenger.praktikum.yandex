@@ -15,12 +15,12 @@ export class SignInForm extends Block {
         super({
             login: new Input({
                 name: 'login',
-                title: 'Логин'
+                title: 'Логин',
             }),
             password: new Input({
                 name: 'password',
                 title: 'Пароль',
-                type: 'password'
+                type: 'password',
             }),
         });
     }
@@ -75,7 +75,7 @@ export class SignUpForm extends Block {
 
 type ProfileMainFormProps = {
     isDisabled?: boolean,
-    mockData? : Record<string, string>
+    mockData?: Record<string, string>
 } & BlockProps
 
 export class ProfileMainForm extends Block {

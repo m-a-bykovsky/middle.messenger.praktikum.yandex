@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
 import Block, { BlockProps } from '../../services/Block';
+import { isFieldValid } from '../../utils/isFieldValid';
 import template from './input.pug';
 import './input.css';
 
@@ -25,18 +26,47 @@ type InputProps = {
     type?: InputTypes,
     value?: string,
     theme?: InputTheme,
+    isNeedValidate?: boolean,
     isRequired?: boolean,
     isDisabled?: boolean,
+    /**
+     * @events названия событий для addEventListener
+     */
+    events?: Record<string, () => void>
 } & BlockProps;
 
+/**
+ * defaults:
+ * @type input
+ * @theme standard
+ * @isNeedValidate true
+ */
 export class Input extends Block {
     constructor({ ...props }: InputProps) {
+        const eventsWithValidation = (): Record<string, () => void> => {
+            if (props.isNeedValidate === false) return { ...props.events };
+
+            const validations: InputProps['events'] = {
+                focus: () => {
+                    console.log('focus');
+                    const { isValid, errMsg } = isFieldValid(this.props.type!);
+                    if (isValid) return;
+                    this.setProps({ errMsg });
+                },
+                // blur: () => {
+                //     const { isValid, errMsg = '' } = isFieldValid(this.props.type!);
+                //     this.setProps({ isValid, errMsg });
+                // },
+            };
+
+            return { ...props.events, ...validations };
+        };
+
         super({
-            id: props.name,
-            for: props.name,
             type: 'input',
             theme: InputTheme.standard,
-            ...props
+            ...props,
+            events: eventsWithValidation(),
         });
     }
 

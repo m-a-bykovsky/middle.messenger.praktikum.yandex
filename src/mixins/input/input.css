@@ -19,7 +19,8 @@
     outline: 0;
 }
 
-.input-field_theme-standard label+input {
+.input-field_theme-standard label+input,
+.input-field_theme-standard label+p+input {
     margin-bottom: 14px;
 }
 

@@ -1,23 +1,17 @@
 const template = `
 div.input-field(class=theme)
-    case theme
-        when ("input-field_theme-primary")
-            input(placeholder=title, 
-                id=name, 
-                name=name, 
-                type=type,
-                required=isRequired, 
-                disabled=isDisabled, 
-            )
-        default            
-            label(for=name)=title
-            input(id=name, 
-                name=name, 
-                type=type, 
-                value=value
-                required=isRequired, 
-                disabled=isDisabled, 
-            )
+    if (theme!=="input-field_theme-primary")
+        label(for=name)=title
+    if errMsg
+        p #{errMsg}
+    input(placeholder=(theme!=="input-field_theme-primary")?'':title,
+        id=name, 
+        name=name, 
+        type=type,
+        value=value,
+        required=isRequired, 
+        disabled=isDisabled,
+    )
 `;
 
 export default template;

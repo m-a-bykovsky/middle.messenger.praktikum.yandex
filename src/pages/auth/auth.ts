@@ -11,6 +11,8 @@ import { SignInForm, SignUpForm } from '../../mixins/form';
 /* styles */
 import './auth.css';
 
+import { consoleFormData } from '../../utils/consoleFormData';
+
 type AuthFormProps = {
     title: string,
     authForm: string,
@@ -30,10 +32,13 @@ export class SignInPage extends Page {
                 authForm: new SignInForm(),
                 submitButton: new Button({
                     text: 'Авторизоваться',
-                    type: 'submit'
+                    type: 'submit',
+                    events: {
+                        click: () => consoleFormData(),
+                    }
                 }),
                 additionalLink: '/',
-                additionalLinkTitle: 'Нет аккаунта?'
+                additionalLinkTitle: 'Нет аккаунта?',
             }
         );
     }
@@ -54,7 +59,10 @@ export class SignUpPage extends Page {
                 authForm: new SignUpForm(),
                 submitButton: new Button({
                     text: 'Зарегистрироваться',
-                    type: 'submit'
+                    type: 'submit',
+                    events: {
+                        click: () => consoleFormData(),
+                    }
                 }),
                 additionalLink: '/',
                 additionalLinkTitle: 'Войти'

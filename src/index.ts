@@ -6,15 +6,14 @@ import { ProfilePage } from './pages/profile';
 import './index.css';
 
 console.log('Hello, Praktikum!');
-document.title = 'ne slozhno';
 
 /* Это все заглушка до реализации роутера */
 
 const pageList: Record<string, any> = {
 
     /* Авторизация */
-    Регистрация: () => new SignInPage(),
-    Авторизация: () => new SignUpPage(),
+    Авторизация: () => new SignInPage(),
+    Регистрация: () => new SignUpPage(),
 
     /* Ошибки */
     404: () => new ErrorPage({

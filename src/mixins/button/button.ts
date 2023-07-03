@@ -15,6 +15,10 @@ type ButtonProps = {
     text: string | Block;
     theme?: ButtonTheme;
     type?: ButtonTypes;
+    /**
+    * @events названия событий для addEventListener
+    */
+    events?: Record<string, () => void>
 }
 
 export class Button extends Block {
