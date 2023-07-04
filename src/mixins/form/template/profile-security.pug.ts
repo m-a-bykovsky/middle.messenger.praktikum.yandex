@@ -1,5 +1,6 @@
 export const template = `
-!=oldPassword
-!=newPassword
-!=repeatNewPassword
+.form__input-list
+    !=oldPassword
+    !=newPassword
+    !=repeatNewPassword
 `;

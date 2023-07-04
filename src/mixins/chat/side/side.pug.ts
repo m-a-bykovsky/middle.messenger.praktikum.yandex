@@ -6,7 +6,8 @@ side#side.chatlist
         !=searchInput
     .chatlist__content
         !=current
-        !=others
+        each chat in others
+            !=chat
 `;
 
 export default template;

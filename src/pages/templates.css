@@ -5,12 +5,17 @@
     min-height: 450px;
 }
 
-#app.main{
+#main-wrapper{
+    display: grid;
     grid-template-areas:
-        "side   main"
-        "footer main";
+        "side   main";
     grid-template-columns: minmax(200px, 300px) auto;
-    grid-template-rows: calc(100% - 50px) 50px;
+    grid-template-rows: 100%;
+    height: 100vh;
+}
+
+#app.main #footer {
+    display: none;
 }
 
 #app.secondary {

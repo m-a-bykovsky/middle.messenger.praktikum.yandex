@@ -15,15 +15,16 @@ import { chatData } from '../../../pages/chat/chat-mock';
 export class Main extends Block {
     constructor(props?: BlockProps) {
         super({
-            feed: chatData.reduce((prev, cur) => (prev
-                + new Message({
+            feed: chatData.map((cur) => (new Message(
+                {
                     author: cur.author,
                     text: cur.text,
                     attachSrc: cur.attachSrc,
                     status: cur.status,
                     time: cur.time,
-                }).getCompiledElement()
-            ), ''),
+                }
+            ).getContent()?.outerHTML
+            )),
             ...props
         });
     }

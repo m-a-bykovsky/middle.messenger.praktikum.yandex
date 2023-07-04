@@ -11,7 +11,7 @@ export default class Block {
         FLOW_CDU: 'flow:component-did-update'
     };
 
-    private _element: HTMLTemplateElement | null = null;
+    private _element: HTMLElement | null = null;
 
     private _elementId: string | null = null;
 
@@ -41,10 +41,7 @@ export default class Block {
     }
 
     init() {
-        this._element = document.createElement('template');
-        this._removeEvents();
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
-        this._addEvents();
     }
 
     private _componentDidMount(oldProps: BlockProps) {
@@ -80,6 +77,20 @@ export default class Block {
     }
 
     private _render(): void {
+        this._removeEvents();
+        const componentFragment: DocumentFragment = this.compile();
+        const newElement: HTMLElement = componentFragment.firstElementChild as HTMLElement;
+
+        if (componentFragment.childElementCount > 1) {
+            console.warn(`${this.constructor.name}' template with no parent element`);
+        }
+
+        this._element?.replaceWith(newElement);
+        this._element = newElement;
+        this._addEvents();
+    }
+
+    private compile(): DocumentFragment {
         // debugger;
         // копирование нового объекта из props для поиска дочерних компонентов
         // (без мутации искомого props)
@@ -113,12 +124,12 @@ export default class Block {
             }
         });
 
-        this.getContent()!.append(componentTempFragment.content);
+        return componentTempFragment.content;
     }
 
     private _removeEvents(): void {
         const { events = {} } = this.props as BlockProps & { events: Record<string, () => void> };
-        const component: Element | null = this.getContent()!.firstElementChild;
+        const component: Element | null = this.getContent();
 
         if (typeof Object.keys(events) === 'undefined'
             || (Object.keys(events).length <= 0)) { return; }
@@ -131,13 +142,12 @@ export default class Block {
 
     private _addEvents(): void {
         const { events = {} } = this.props as BlockProps & { events: Record<string, () => void> };
-        const component: Element | null = this.getContent()!.firstElementChild;
+        const component: Element | null = this.getContent();
 
         if (typeof Object.keys(events) === 'undefined'
             || (Object.keys(events).length <= 0)) { return; }
 
         Object.keys(events).forEach((eventName) => {
-            component?.addEventListener(eventName as string, (e: Event) => e.preventDefault());
             component?.addEventListener(eventName as string, events[eventName], true);
         });
     }
@@ -146,14 +156,8 @@ export default class Block {
         return 'span Never give up. And never forget to declare mixin` template';
     }
 
-    getContent(): DocumentFragment | null {
-        return this.element!.content;
-    }
-
-    // для рендера списков: чаты, сообщения
-    getCompiledElement(): string {
-        const fragmentChildren = Array.from(this.getContent()!.children);
-        return fragmentChildren.reduce((prev, cur) => (prev + cur.outerHTML), '');
+    getContent(): HTMLElement | null {
+        return this.element;
     }
 
     private _makePropsProxy(props: BlockProps) {

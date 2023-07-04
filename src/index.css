@@ -28,6 +28,10 @@
     grid-area: main;
 }
 
+#side{
+    grid-area: side;
+}
+
 p,
 span,
 h1,

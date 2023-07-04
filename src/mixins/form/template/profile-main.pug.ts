@@ -1,8 +1,9 @@
 export const template = `
-!=email
-!=login
-!=firstName
-!=secondName
-!=displayName
-!=phone
+.form__input-list
+    !=email
+    !=login
+    !=firstName
+    !=secondName
+    !=displayName
+    !=phone
 `;

@@ -20,7 +20,8 @@ export class Footer extends Block {
             newMessageInput: new Input({
                 name: 'newMsg',
                 title: 'Сообщение',
-                theme: InputTheme.primary
+                theme: InputTheme.primary,
+                isNeedValidate: false,
             }),
             sendMessageButton: new Button({
                 text: new Icon({

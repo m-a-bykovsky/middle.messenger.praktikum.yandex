@@ -1,6 +1,8 @@
 const template = `
 .chat__main
-    !=feed
+    each message in feed
+        !=message
+        
 `;
 
 export default template;

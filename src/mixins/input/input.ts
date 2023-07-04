@@ -32,7 +32,7 @@ type InputProps = {
     /**
      * @events названия событий для addEventListener
      */
-    events?: Record<string, () => void>
+    events?: Record<string, any>
 } & BlockProps;
 
 /**
@@ -47,16 +47,13 @@ export class Input extends Block {
             if (props.isNeedValidate === false) return { ...props.events };
 
             const validations: InputProps['events'] = {
-                focus: () => {
-                    console.log('focus');
+                blur: (e: Event) => {
+                    e.preventDefault();
+                    e.stopPropagation();
                     const { isValid, errMsg } = isFieldValid(this.props.type!);
                     if (isValid) return;
                     this.setProps({ errMsg });
                 },
-                // blur: () => {
-                //     const { isValid, errMsg = '' } = isFieldValid(this.props.type!);
-                //     this.setProps({ isValid, errMsg });
-                // },
             };
 
             return { ...props.events, ...validations };

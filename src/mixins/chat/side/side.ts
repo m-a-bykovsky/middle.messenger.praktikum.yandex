@@ -20,7 +20,8 @@ export class Side extends Block {
                 name: 'chatListSearch',
                 title: 'Поиск',
                 type: 'search',
-                theme: InputTheme.primary
+                theme: InputTheme.primary,
+                isNeedValidate: false,
             }),
             current: new Preview({
                 avatarAlt: currentChat.author,
@@ -31,8 +32,8 @@ export class Side extends Block {
                 isSelf: currentChat.isSelf,
                 className: 'current',
             }),
-            others: chatlistData.reduce((prev, cur) => (prev
-                + new Preview({
+            others: chatlistData.map((cur) => (new Preview(
+                {
                     avatarAlt: cur.author,
                     avatarSrc: cur.avatarSrc,
                     msgAuthor: cur.author,
@@ -40,8 +41,9 @@ export class Side extends Block {
                     msgUpdateTime: cur.updateTime,
                     isSelf: cur.isSelf,
                     msgNewCounter: cur.newMsgCounter,
-                }).getCompiledElement()
-            ), ''),
+                }
+            ).getContent()!.outerHTML
+            )),
             ...props,
         });
     }
