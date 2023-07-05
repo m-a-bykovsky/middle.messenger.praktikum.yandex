@@ -6,6 +6,7 @@
 }
 
 #main-wrapper{
+    column-gap: 20px;
     display: grid;
     grid-template-areas:
         "side   main";

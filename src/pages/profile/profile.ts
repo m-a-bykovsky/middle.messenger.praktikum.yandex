@@ -21,7 +21,7 @@ const profileData = {
     secondName: 'Быковский',
     login: 'mb',
     email: 'm.a.bykovsky@yandex.ru',
-    phone: '+7 912 345 67 89'
+    phone: '+79123456789'
 };
 
 type ProfilePageProps = {
@@ -50,7 +50,7 @@ export class ProfilePage extends Page {
                 submitButton: new Button({
                     text: 'Сохранить',
                     events: {
-                        click: () => consoleFormData(),
+                        click: (e) => consoleFormData(e),
                     }
                 }),
                 backlinkIcon: new Icon({

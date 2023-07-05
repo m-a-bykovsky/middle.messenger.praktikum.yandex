@@ -18,7 +18,7 @@ type ButtonProps = {
     /**
     * @events названия событий для addEventListener
     */
-    events?: Record<string, () => void>
+    events?: Record<string, (e: Event) => void>
 }
 
 export class Button extends Block {

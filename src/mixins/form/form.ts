@@ -8,7 +8,8 @@ import { template as profileMainTpl } from './template/profile-main.pug';
 import { template as profileSecurityTpl } from './template/profile-security.pug';
 
 /* required mixins */
-import { Input, InputTheme } from '../../mixins/input';
+import { Input, InputTheme, InputType } from '../../mixins/input';
+import { ValidationTypes } from '../../utils/isFieldValid';
 
 export class SignInForm extends Block {
     constructor() {
@@ -20,7 +21,8 @@ export class SignInForm extends Block {
             password: new Input({
                 name: 'password',
                 title: 'Пароль',
-                type: 'password',
+                type: InputType.password,
+                validationType: ValidationTypes.password,
             }),
         });
     }
@@ -36,7 +38,8 @@ export class SignUpForm extends Block {
             email: new Input({
                 name: 'email',
                 title: 'Почта',
-                type: 'email'
+                type: InputType.email,
+                validationType: ValidationTypes.email,
             }),
             login: new Input({
                 name: 'login',
@@ -44,7 +47,9 @@ export class SignUpForm extends Block {
             }),
             firstName: new Input({
                 name: 'first_name',
-                title: 'Имя'
+                title: 'Имя',
+                validationType: ValidationTypes.login,
+
             }),
             secondName: new Input({
                 name: 'second_name',
@@ -53,17 +58,20 @@ export class SignUpForm extends Block {
             phone: new Input({
                 name: 'phone',
                 title: 'Телефон',
-                type: 'tel'
+                type: InputType.tel,
+                validationType: ValidationTypes.tel,
             }),
             password: new Input({
                 name: 'password',
                 title: 'Пароль',
-                type: 'password'
+                type: InputType.password,
+                validationType: ValidationTypes.password,
             }),
             passwordRepeate: new Input({
                 name: 'password-repeat',
                 title: 'Пароль (еще разок)',
-                type: 'password'
+                type: InputType.password,
+                validationType: ValidationTypes.password,
             }),
         });
     }
@@ -84,17 +92,19 @@ export class ProfileMainForm extends Block {
             email: new Input({
                 name: 'email',
                 title: 'Почта',
-                type: 'email',
+                type: InputType.email,
                 value: props.mockData!.email,
                 theme: InputTheme.inline,
-                isDisabled: props.isDisabled
+                isDisabled: props.isDisabled,
+                validationType: ValidationTypes.email,
             }),
             login: new Input({
                 name: 'login',
                 title: 'Логин',
                 value: props.mockData!.login,
                 theme: InputTheme.inline,
-                isDisabled: props.isDisabled
+                isDisabled: props.isDisabled,
+                validationType: ValidationTypes.login,
             }),
             firstName: new Input({
                 name: 'first_name',
@@ -120,10 +130,11 @@ export class ProfileMainForm extends Block {
             phone: new Input({
                 name: 'phone',
                 title: 'Телефон',
-                type: 'tel',
+                type: InputType.tel,
                 value: props.mockData!.phone,
                 theme: InputTheme.inline,
-                isDisabled: props.isDisabled
+                isDisabled: props.isDisabled,
+                validationType: ValidationTypes.tel,
             })
         });
     }
@@ -139,21 +150,24 @@ export class ProfileSecurityForm extends Block {
             oldPassword: new Input({
                 name: 'oldPassword',
                 title: 'Старый пароль',
-                value: '•••••••••',
-                type: 'password',
-                theme: InputTheme.inline
+                value: 'r?1xb*OS~@0J',
+                type: InputType.password,
+                theme: InputTheme.inline,
+                isNeedValidate: false,
             }),
             newPassword: new Input({
                 name: 'newPassword',
                 title: 'Новый пароль',
-                type: 'password',
-                theme: InputTheme.inline
+                type: InputType.password,
+                theme: InputTheme.inline,
+                validationType: ValidationTypes.password,
             }),
             repeatNewPassword: new Input({
                 name: 'repeatNewPassword',
                 title: 'Повторите новый пароль',
-                type: 'password',
-                theme: InputTheme.inline
+                type: InputType.password,
+                theme: InputTheme.inline,
+                validationType: ValidationTypes.password,
             }),
         });
     }

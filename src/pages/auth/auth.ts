@@ -34,7 +34,7 @@ export class SignInPage extends Page {
                     text: 'Авторизоваться',
                     type: 'submit',
                     events: {
-                        click: () => consoleFormData(),
+                        click: (e) => consoleFormData(e),
                     }
                 }),
                 additionalLink: '/',
@@ -61,7 +61,7 @@ export class SignUpPage extends Page {
                     text: 'Зарегистрироваться',
                     type: 'submit',
                     events: {
-                        click: () => consoleFormData(),
+                        click: (e) => consoleFormData(e),
                     }
                 }),
                 additionalLink: '/',
