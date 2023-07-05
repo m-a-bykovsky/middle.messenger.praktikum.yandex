@@ -6,18 +6,7 @@ const template = `
             if (mode=="read")
                 h2 #{profileData.firstName}
 
-        .profile__full
-            !=profileMain
-            if (mode == "write")
-                !=profileSecurity
-        
-        if (mode=="read")
-            nav.profile__settings
-                a(href="/").extra Изменить данные
-                a(href="/").warning Выйти
-        else
-            .profile__submit
-                !=submitButton
+        !=profileMain
 
     nav.backlink-wrapper
         a(href="/").backlink

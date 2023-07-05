@@ -11,6 +11,7 @@ div.input-field(class=theme)
         value=value,
         required=isRequired, 
         disabled=isDisabled,
+        data-validation-type=validationType,
     )
 `;
 

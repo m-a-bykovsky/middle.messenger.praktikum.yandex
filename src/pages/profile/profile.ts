@@ -7,12 +7,10 @@ import template from './profile.pug';
 /* required mixins */
 import { Avatar } from '../../mixins/avatar';
 import { Icon } from '../../mixins/icon';
-import { Button } from '../../mixins/button';
-import { ProfileMainForm, ProfileSecurityForm } from '../../mixins/form';
+import { ProfileForm } from '../../mixins/form';
 
 /* styles */
 import './profile.css';
-import { consoleFormData } from '../../utils/consoleFormData';
 
 /* mock */
 const profileData = {
@@ -24,7 +22,7 @@ const profileData = {
     phone: '+79123456789'
 };
 
-type ProfilePageProps = {
+export type ProfilePageProps = {
     mode: 'read' | 'write',
 } & BlockProps;
 
@@ -42,16 +40,10 @@ export class ProfilePage extends Page {
                     size: 130,
                     className: (!isDisabled) ? 'avatar_editable' : ''
                 }),
-                profileMain: new ProfileMainForm({
+                profileMain: new ProfileForm({
+                    mode: props.mode,
                     isDisabled,
                     mockData: profileData,
-                }),
-                profileSecurity: new ProfileSecurityForm(),
-                submitButton: new Button({
-                    text: 'Сохранить',
-                    events: {
-                        click: (e) => consoleFormData(e),
-                    }
                 }),
                 backlinkIcon: new Icon({
                     iconClass: 'mb-arrow-left mb-pointer'

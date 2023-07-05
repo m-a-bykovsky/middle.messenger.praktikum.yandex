@@ -1,5 +1,6 @@
 export const template = `
-.form__input-list
+form.auth__form
     !=login
     !=password
+    !=submitButton
 `;

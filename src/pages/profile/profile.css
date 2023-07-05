@@ -3,10 +3,14 @@
 }
 
 .profile {
+    margin: 60px 0;
+}
+
+.profile,
+.profile__full {
     display: inherit;
     flex-direction: inherit;
     gap: 60px;
-    margin: 60px 0;
 }
 
 .profile__summary,
@@ -15,6 +19,8 @@
 .profile__submit {
     margin: 0 auto;
 }
+
+
 
 .profile__summary {
     text-align: center;

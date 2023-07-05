@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
 import Block, { BlockProps } from '../../services/Block';
-import { isFieldValid, ValidationTypes } from '../../utils/isFieldValid';
+import { handleInput, ValidationTypes } from '../../utils/isFieldValid';
 import template from './input.pug';
 import './input.css';
 
@@ -37,20 +37,6 @@ type InputProps = {
 } & BlockProps;
 
 type ValidationsType = Record<string, (e: Event) => void>;
-
-const handleInput = (e: Event, comp: BlockProps) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const inputElement: HTMLInputElement = document.querySelector(`input#${comp.props.name}[type="${comp.props.type}"]`)!;
-    const value: string = inputElement.value.trim();
-    const { errMsg } = isFieldValid(comp.props.validationType!, value);
-
-    comp.setProps({ errMsg });
-
-    const inputElementUpdated: HTMLInputElement = document.querySelector(`input#${comp.props.name}[type="${comp.props.type}"]`)!;
-    inputElementUpdated.value = value;
-};
 
 /**
  * defaults:

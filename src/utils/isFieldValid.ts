@@ -1,10 +1,6 @@
-/* eslint-disable no-shadow */
-enum ValidateFields {
-    login = 'login',
-    password = 'password',
-    email = 'login',
-}
+import { BlockProps } from '../services/Block';
 
+/* eslint-disable no-shadow */
 type ValidationResult = {
     isValid: boolean,
     errMsg?: string
@@ -25,11 +21,11 @@ export function isFieldValid(validationType: ValidationTypes, value: string): Va
         },
         email: {
             // eslint-disable-next-line no-useless-escape
-            reg: /^[\w.-]+\w+@[\w.-]+[.]\w+[a-zA-Z]$/,
+            reg: /^[\w.-]+\w+@[\w.-]+[.][a-zA-Z]+$/,
             errMsg: 'Некорректный email',
         },
         login: {
-            reg: /^[a-zA-Z][a-zA-Z0-9_]{2,}$/,
+            reg: /^[a-zA-Z0-9_]{1,}$/,
             errMsg: 'От двух знаков без пробелов и спецсимволов',
         },
         password: {
@@ -48,3 +44,19 @@ export function isFieldValid(validationType: ValidationTypes, value: string): Va
 
     return { isValid, errMsg };
 }
+
+export const handleInput = (e: Event, comp: BlockProps) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const inputElement: HTMLInputElement | null = document.querySelector(`input#${comp.props.name}[type="${comp.props.type}"]`);
+    if (inputElement === null) return;
+    const value: string = inputElement.value.trim();
+    const { errMsg } = isFieldValid(comp.props.validationType!, value);
+
+    comp.setProps({ errMsg });
+
+    const inputElementUpdated: HTMLInputElement = document.querySelector(`input#${comp.props.name}[type="${comp.props.type}"]`)!;
+    inputElementUpdated.value = value;
+    if (e.type === 'focus') inputElementUpdated.focus();
+};

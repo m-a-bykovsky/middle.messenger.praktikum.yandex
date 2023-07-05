@@ -1,5 +1,5 @@
 export const template = `
-.form__input-list
+form.auth__form
     !=email
     !=login
     !=firstName
@@ -7,4 +7,5 @@ export const template = `
     !=phone
     !=password
     !=passwordRepeate
+    !=submitButton
 `;

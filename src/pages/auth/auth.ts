@@ -5,13 +5,10 @@ import Page, { PageTemplate } from '../../services/Page';
 import template from './auth.pug';
 
 /* required mixins */
-import { Button } from '../../mixins/button';
 import { SignInForm, SignUpForm } from '../../mixins/form';
 
 /* styles */
 import './auth.css';
-
-import { consoleFormData } from '../../utils/consoleFormData';
 
 type AuthFormProps = {
     title: string,
@@ -30,13 +27,6 @@ export class SignInPage extends Page {
                 ...props,
                 title: 'Вход',
                 authForm: new SignInForm(),
-                submitButton: new Button({
-                    text: 'Авторизоваться',
-                    type: 'submit',
-                    events: {
-                        click: (e) => consoleFormData(e),
-                    }
-                }),
                 additionalLink: '/',
                 additionalLinkTitle: 'Нет аккаунта?',
             }
@@ -57,13 +47,6 @@ export class SignUpPage extends Page {
                 ...props,
                 title: 'Регистрация',
                 authForm: new SignUpForm(),
-                submitButton: new Button({
-                    text: 'Зарегистрироваться',
-                    type: 'submit',
-                    events: {
-                        click: (e) => consoleFormData(e),
-                    }
-                }),
                 additionalLink: '/',
                 additionalLinkTitle: 'Войти'
             }

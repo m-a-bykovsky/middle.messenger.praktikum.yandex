@@ -1,9 +1,11 @@
 export function consoleFormData(e: Event): void {
     e.preventDefault();
+    e.stopPropagation();
 
     const form: HTMLFormElement | null = document.querySelector('form');
     if (!form) return;
-    const formData: FormData = new FormData(form);
+    // eslint-disable-next-line no-undef
+    const formData: [string, FormDataEntryValue][] = Array.from(new FormData(form));
 
-    console.table(Array.from(formData));
+    console.table(formData);
 }

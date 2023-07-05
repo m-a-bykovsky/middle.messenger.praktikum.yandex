@@ -4,12 +4,13 @@ import Block, { BlockProps } from '../../services/Block';
 /* templates */
 import { template as signInTpl } from './template/signin.pug';
 import { template as signUpTpl } from './template/signup.pug';
-import { template as profileMainTpl } from './template/profile-main.pug';
-import { template as profileSecurityTpl } from './template/profile-security.pug';
+import { template as profileTpl } from './template/profile.pug';
 
 /* required mixins */
 import { Input, InputTheme, InputType } from '../../mixins/input';
-import { ValidationTypes } from '../../utils/isFieldValid';
+import { handleInput, ValidationTypes } from '../../utils/isFieldValid';
+import { Button } from '../button';
+import { consoleFormData } from '../../utils/consoleFormData';
 
 export class SignInForm extends Block {
     constructor() {
@@ -23,6 +24,18 @@ export class SignInForm extends Block {
                 title: 'Пароль',
                 type: InputType.password,
                 validationType: ValidationTypes.password,
+            }),
+            submitButton: new Button({
+                text: 'Авторизоваться',
+                type: 'submit',
+                events: {
+                    click: (e) => {
+                        consoleFormData(e);
+                        Object.values(this.props).forEach((prop: BlockProps) => {
+                            if (prop instanceof Input) handleInput(e, prop);
+                        });
+                    },
+                }
             }),
         });
     }
@@ -43,17 +56,16 @@ export class SignUpForm extends Block {
             }),
             login: new Input({
                 name: 'login',
-                title: 'Логин'
+                title: 'Логин',
+                validationType: ValidationTypes.login,
             }),
             firstName: new Input({
                 name: 'first_name',
                 title: 'Имя',
-                validationType: ValidationTypes.login,
-
             }),
             secondName: new Input({
                 name: 'second_name',
-                title: 'Фамилия'
+                title: 'Фамилия',
             }),
             phone: new Input({
                 name: 'phone',
@@ -73,6 +85,18 @@ export class SignUpForm extends Block {
                 type: InputType.password,
                 validationType: ValidationTypes.password,
             }),
+            submitButton: new Button({
+                text: 'Зарегистрироваться',
+                type: 'submit',
+                events: {
+                    click: (e) => {
+                        consoleFormData(e);
+                        Object.values(this.props).forEach((prop: BlockProps) => {
+                            if (prop instanceof Input) handleInput(e, prop);
+                        });
+                    },
+                }
+            }),
         });
     }
 
@@ -81,13 +105,14 @@ export class SignUpForm extends Block {
     }
 }
 
-type ProfileMainFormProps = {
+type ProfileFormProps = {
+    mode: 'read' | 'write',
     isDisabled?: boolean,
     mockData?: Record<string, string>
 } & BlockProps
 
-export class ProfileMainForm extends Block {
-    constructor(props: ProfileMainFormProps) {
+export class ProfileForm extends Block {
+    constructor(props: ProfileFormProps) {
         super({
             email: new Input({
                 name: 'email',
@@ -135,18 +160,7 @@ export class ProfileMainForm extends Block {
                 theme: InputTheme.inline,
                 isDisabled: props.isDisabled,
                 validationType: ValidationTypes.tel,
-            })
-        });
-    }
-
-    render() {
-        return profileMainTpl;
-    }
-}
-
-export class ProfileSecurityForm extends Block {
-    constructor() {
-        super({
+            }),
             oldPassword: new Input({
                 name: 'oldPassword',
                 title: 'Старый пароль',
@@ -169,10 +183,22 @@ export class ProfileSecurityForm extends Block {
                 theme: InputTheme.inline,
                 validationType: ValidationTypes.password,
             }),
+            submitButton: new Button({
+                text: 'Сохранить',
+                events: {
+                    click: (e) => {
+                        consoleFormData(e);
+                        Object.values(this.props).forEach((prop: BlockProps) => {
+                            if (prop instanceof Input) handleInput(e, prop);
+                        });
+                    },
+                }
+            }),
+            ...props
         });
     }
 
     render() {
-        return profileSecurityTpl;
+        return profileTpl;
     }
 }
