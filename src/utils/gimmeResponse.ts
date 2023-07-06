@@ -20,29 +20,30 @@ type GimmeOptionProps = {
     // eslint-disable-next-line no-undef
     data?: XMLHttpRequestBodyInit & Record<string, string> | null,
     timeout?: number,
-
 }
 
+type HTTPMethod = (url: string, options?: GimmeOptionProps) => Promise<unknown>;
+
 export class GimmeResponse {
-    get = (url: string, options: GimmeOptionProps = {}) => this._request(
+    get: HTTPMethod = (url, options = {}) => this._request(
         url,
         { ...options, method: METHODS.GET },
         options.timeout
     );
 
-    put = (url: string, options: GimmeOptionProps = {}) => this._request(
+    put: HTTPMethod = (url, options = {}) => this._request(
         url,
         { ...options, method: METHODS.PUT },
         options.timeout
     );
 
-    post = (url: string, options: GimmeOptionProps = {}) => this._request(
+    post: HTTPMethod = (url, options = {}) => this._request(
         url,
         { ...options, method: METHODS.POST },
         options.timeout
     );
 
-    delete = (url: string, options: GimmeOptionProps = {}) => this._request(
+    delete: HTTPMethod = (url, options = {}) => this._request(
         url,
         { ...options, method: METHODS.DELETE },
         options.timeout
