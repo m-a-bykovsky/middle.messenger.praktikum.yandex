@@ -1,3 +1,6 @@
+## Самый свежий PR
+* Sprint 2: https://github.com/m-a-bykovsky/middle.messenger.praktikum.yandex/pull/3
+
 ## Что это?
 Проектная работа по созданию мессенджера в рамках [курса «Мидл фронтенд-разработчик»](https://practicum.yandex.ru/middle-frontend/) от Яндекс.Практикум.
 * [Макет](https://www.figma.com/file/2UKVA4ybFUaWmidl4yk7kx/middle.messenger.praktikum.yandex?node-id=0-1&t=MBNZsXKaNpo7Qw0o-0).
