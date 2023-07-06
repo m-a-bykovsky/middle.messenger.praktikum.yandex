@@ -35,7 +35,7 @@ export function isFieldValid(validationType: ValidationTypes, value: string): Va
         },
         tel: {
             reg: /\+?[0-9]{10,15}/,
-            errMsg: 'До 10 до 15 знаков без пробелов',
+            errMsg: 'До 10 до 15 цифр без пробелов',
         }
     };
 
