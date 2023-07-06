@@ -10,6 +10,8 @@ import { Button, ButtonTheme } from '../../button';
 
 /* styles */
 import './footer.css';
+import { consoleFormData } from '../../../utils/consoleFormData';
+import { handleInput } from '../../../utils/isFieldValid';
 
 export class Footer extends Block {
     constructor(props?: BlockProps) {
@@ -21,13 +23,21 @@ export class Footer extends Block {
                 name: 'newMsg',
                 title: 'Сообщение',
                 theme: InputTheme.primary,
-                isNeedValidate: false,
             }),
             sendMessageButton: new Button({
                 text: new Icon({
                     iconClass: 'mb-arrow-right mb-pointer'
                 }),
-                theme: ButtonTheme.icon
+                theme: ButtonTheme.icon,
+                type: 'submit',
+                events: {
+                    click: (e) => {
+                        consoleFormData(e);
+                        Object.values(this.props).forEach((prop: BlockProps) => {
+                            if (prop instanceof Input) handleInput(e, prop);
+                        });
+                    },
+                }
             }),
             ...props,
         });

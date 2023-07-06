@@ -185,6 +185,7 @@ export class ProfileForm extends Block {
             }),
             submitButton: new Button({
                 text: 'Сохранить',
+                type: 'submit',
                 events: {
                     click: (e) => {
                         consoleFormData(e);

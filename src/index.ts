@@ -38,6 +38,10 @@ const pageList: Record<string, any> = {
 };
 
 const menu = document.createElement('main');
+const nav = document.createElement('nav');
+const list = document.createElement('ul');
+list.style.listStyleType = 'none';
+menu.appendChild(nav).appendChild(list);
 menu.setAttribute('id', 'main');
 
 const renderDom = (root: string, element: HTMLElement) => {
@@ -51,7 +55,7 @@ Object.keys(pageList).forEach((title: string) => {
     const element = pageList[title];
     link.innerText = title;
     link.onclick = () => { renderDom('main', element().getContent()); };
-    menu.appendChild(li.appendChild(link));
+    list.appendChild(li).appendChild(link);
 });
 
 document.addEventListener('DOMContentLoaded', () => {

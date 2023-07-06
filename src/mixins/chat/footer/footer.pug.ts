@@ -3,7 +3,7 @@ const template = `
     .new-message
         .new-message__attachment
             !=attachIcon
-        .new-message__input
+        form.new-message__input
             !=newMessageInput
             !=sendMessageButton
 `;
