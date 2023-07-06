@@ -3,7 +3,7 @@ import EventBus from './EventBus';
 
 export type BlockProps = Record<string, any>
 
-export default class Block {
+export default abstract class Block {
     static EVENTS: Record<string, string> = {
         INIT: 'init',
         FLOW_CDM: 'flow:component-did-mount',
