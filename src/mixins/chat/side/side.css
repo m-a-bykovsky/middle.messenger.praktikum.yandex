@@ -1,0 +1,30 @@
+/* Список всех чатов */
+
+.chatlist {
+    grid-area: side;
+    overflow: hidden;
+    background-color: var(--color-gray-light);
+    box-shadow: inset -2px 0 0 var(--color-white), inset -3px 0 0 var(--color-gray);
+}
+
+.chatlist__header {
+    height: var(--header-height);
+    padding: 20px 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chatlist__header > * {
+    display: inherit;
+}
+
+.chatlist__header a.extra {
+    display: inline;
+    margin-left: auto;
+}
+
+.chatlist__content {
+    overflow-y: scroll;
+    height: calc(100% - var(--header-height));
+}

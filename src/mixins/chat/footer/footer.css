@@ -1,0 +1,23 @@
+/*
+* Подвал. Создание нового собщения
+**/
+
+.chat__footer {
+    border-top: 1px solid var(--color-gray);
+}
+
+.new-message {
+    display: inherit;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: inherit;
+}
+
+.new-message__input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: inherit;
+    width: 100%;
+}

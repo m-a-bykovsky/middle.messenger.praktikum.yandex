@@ -1,18 +1,16 @@
-@import url(../base.css);
-@import url(../../mixins/input/input.css);
-@import url(../../mixins/icon/icon.css);
-@import url(../../mixins/avatar/avatar.css);
-@import url(../../mixins/button/button.css);
-
 * {
     font-size: 13px;
 }
 
 .profile {
+    margin: 60px 0;
+}
+
+.profile,
+.profile__full {
     display: inherit;
     flex-direction: inherit;
     gap: 60px;
-    margin: 60px 0;
 }
 
 .profile__summary,
@@ -21,6 +19,8 @@
 .profile__submit {
     margin: 0 auto;
 }
+
+
 
 .profile__summary {
     text-align: center;
@@ -34,7 +34,7 @@
 
 .profile__settings>* {
     flex-direction: row;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
     padding-bottom: 10px;
     display: block;
 }

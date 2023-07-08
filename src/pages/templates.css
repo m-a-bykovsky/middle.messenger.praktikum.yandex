@@ -1,0 +1,36 @@
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
+.modal {
+    border-radius: 12px;
+    box-shadow: 0 0 6px rgb(0 0 0 / 14%);
+    min-height: 450px;
+}
+
+#main-wrapper{
+    column-gap: 20px;
+    display: grid;
+    grid-template-areas:
+        "side   main";
+    grid-template-columns: minmax(200px, 300px) auto;
+    grid-template-rows: 100%;
+    height: 100vh;
+}
+
+#app.main #footer {
+    display: none;
+}
+
+#app.secondary {
+    grid-template-areas:
+        ".      main    ."
+        ".      footer  .";
+    grid-template-columns: 1fr minmax(450px, 560px) 1fr;
+    grid-template-rows: minmax(95vh, 100%) 1fr;
+}
+
+#app.tertiary {
+    grid-template-areas:
+        ".      main    ."
+        ".      footer  .";
+    grid-template-columns: 3fr minmax(340px, 1fr) 3fr;
+    grid-template-rows: minmax(95vh, 100%) 1fr;
+}

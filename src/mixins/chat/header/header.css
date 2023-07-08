@@ -1,0 +1,21 @@
+/*
+* Шапка чата. Инфо о контакте. Тулбар
+**/
+
+.chat__header {
+    border-bottom: 1px solid var(--color-gray);
+    justify-content: inherit;
+}
+
+.contact-info {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    gap: inherit;
+}
+
+.contact-info__title {
+    color: var(--color-black);
+    font-size: 1.1rem;
+    font-weight: bolder;
+}
