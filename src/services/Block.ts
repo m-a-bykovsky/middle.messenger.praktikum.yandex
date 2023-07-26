@@ -3,7 +3,8 @@ import EventBus from './EventBus';
 
 export type BlockProps = Record<string, any>
 
-export default abstract class Block {
+// @ask добавить бы abstract, но начинает ругаться Route.ts
+export default class Block {
     static EVENTS: Record<string, string> = {
         INIT: 'init',
         FLOW_CDM: 'flow:component-did-mount',

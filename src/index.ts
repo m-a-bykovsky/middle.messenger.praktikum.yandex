@@ -4,60 +4,32 @@ import { ChatPage } from './pages/chat';
 import { ProfilePage } from './pages/profile';
 
 import './index.css';
+import Router from './services/Router';
 
 console.log('Hello, Praktikum!');
 
-/* Это все заглушка до реализации роутера */
+const router = new Router('#main');
 
-const pageList: Record<string, any> = {
-
+router
     /* Авторизация */
-    Авторизация: () => new SignInPage(),
-    Регистрация: () => new SignUpPage(),
-
-    /* Ошибки */
-    404: () => new ErrorPage({
+    .use('/', SignInPage)
+    .use('/sign-in', SignInPage)
+    /* Регистрация */
+    .use('/sign-up', SignUpPage)
+    /* Ошибки 4** */
+    .use('/err4', ErrorPage, {
         code: 404,
         message: 'Не туда попали'
-    }),
-    500: () => new ErrorPage({
+    })
+    /* Ошибки 5** */
+    .use('/err5', ErrorPage, {
         code: 500,
         message: 'Бригада фиксиков уже в пути'
-    }),
-
-    /* Чат */
-    Чат: () => new ChatPage(),
-
-    /* Профиль */
-    'Посмотреть профиль': () => new ProfilePage({
-        mode: 'read',
-    }),
-    'Редактировать профиль': () => new ProfilePage({
-        mode: 'write',
     })
-};
-
-const menu = document.createElement('main');
-const nav = document.createElement('nav');
-const list = document.createElement('ul');
-list.style.listStyleType = 'none';
-menu.appendChild(nav).appendChild(list);
-menu.setAttribute('id', 'main');
-
-const renderDom = (root: string, element: HTMLElement) => {
-    document.getElementById(root)?.replaceWith(element);
-};
-
-Object.keys(pageList).forEach((title: string) => {
-    const li = document.createElement('li');
-    const link = document.createElement('a');
-    link.style.fontSize = '20px';
-    const element = pageList[title];
-    link.innerText = title;
-    link.onclick = () => { renderDom('main', element().getContent()); };
-    list.appendChild(li).appendChild(link);
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('app')?.prepend(menu);
-});
+    /* Чат */
+    .use('/messenger', ChatPage)
+    /* Профиль */
+    .use('/profile', ProfilePage, { mode: 'read' })
+    /* Настройки профиля */
+    .use('/settings', ProfilePage, { mode: 'write' })
+    .start();

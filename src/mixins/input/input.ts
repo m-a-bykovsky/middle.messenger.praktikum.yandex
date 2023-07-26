@@ -59,7 +59,7 @@ export class Input extends Block {
         };
 
         super({
-            type: 'input',
+            type: InputType.input,
             theme: InputTheme.standard,
             isNeedValidate: true,
             validationType: props.validationType ? props.validationType : 'input',

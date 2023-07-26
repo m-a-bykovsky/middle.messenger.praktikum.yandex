@@ -16,7 +16,7 @@ import './chat.css';
 import { chatData } from './chat-mock';
 
 export class ChatPage extends Page {
-    constructor(props?: Page) {
+    constructor() {
         const noChatData: boolean = chatData.length === 0;
 
         super(
@@ -28,7 +28,6 @@ export class ChatPage extends Page {
                 header: new Header(),
                 main: new Main(),
                 footer: new Footer(),
-                ...props,
             }
         );
     }

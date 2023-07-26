@@ -19,7 +19,7 @@ type AuthFormProps = {
 }
 
 export class SignInPage extends Page {
-    constructor(props?: AuthFormProps) {
+    constructor(props: AuthFormProps) {
         super(
             'о, это ты, привет!',
             PageTemplate.tertiary,
@@ -27,7 +27,7 @@ export class SignInPage extends Page {
                 ...props,
                 title: 'Вход',
                 authForm: new SignInForm(),
-                additionalLink: '/',
+                additionalLink: '/sign-up',
                 additionalLinkTitle: 'Нет аккаунта?',
             }
         );
@@ -39,7 +39,7 @@ export class SignInPage extends Page {
 }
 
 export class SignUpPage extends Page {
-    constructor(props?: AuthFormProps) {
+    constructor(props: AuthFormProps) {
         super(
             'у меня будет новый друг',
             PageTemplate.tertiary,
@@ -47,7 +47,7 @@ export class SignUpPage extends Page {
                 ...props,
                 title: 'Регистрация',
                 authForm: new SignUpForm(),
-                additionalLink: '/',
+                additionalLink: '/sign-in',
                 additionalLinkTitle: 'Войти'
             }
         );

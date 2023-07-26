@@ -4,7 +4,7 @@ import Block from '../../../services/Block';
 import template from './side.pug';
 
 /* required mixins */
-import { Input, InputTheme } from '../../input';
+import { Input, InputTheme, InputType } from '../../input';
 import { Preview } from '../preview';
 
 /* styles */
@@ -19,7 +19,7 @@ export class Side extends Block {
             searchInput: new Input({
                 name: 'chatListSearch',
                 title: 'Поиск',
-                type: 'search',
+                type: InputType.search,
                 theme: InputTheme.primary,
                 isNeedValidate: false,
             }),

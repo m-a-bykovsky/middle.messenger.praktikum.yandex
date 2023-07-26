@@ -31,7 +31,9 @@ export class ProfilePage extends Page {
         const wrapperElement = (props.isDisabled) ? 'div' : 'form';
         const isDisabled = (props.mode === 'read');
         super(
-            'а тут все про тебя, ага',
+            (isDisabled)
+                ? 'а тут все про тебя, ага'
+                : 'давай все тут поменяем',
             PageTemplate.secondary,
             {
                 wrapperElement,

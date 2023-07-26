@@ -13,7 +13,7 @@ export const template = `
             !=repeatNewPassword
     if (mode == "read")
         nav.profile__settings
-            a(href="/").extra Изменить данные
+            a(href="/settings").extra Изменить данные
             a(href="/").warning Выйти
     else
         .profile__submit
