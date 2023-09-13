@@ -11,9 +11,12 @@ export enum ValidationTypes {
     email = 'email',
     login = 'login',
     password = 'password',
+    /** без regexp, только для проверки совпадения значений
+     */
+    password_repeat = 'password-repeat',
     tel = 'tel',
 }
-export function isFieldValid(validationType: ValidationTypes, value: string): ValidationResult {
+function isValueValid(validationType: ValidationTypes, value: string): ValidationResult {
     const validationRules: Record<string, Record<string, any>> = {
         input: {
             reg: /^[\s\S]+/,
@@ -25,13 +28,13 @@ export function isFieldValid(validationType: ValidationTypes, value: string): Va
             errMsg: 'Некорректный email',
         },
         login: {
-            reg: /^[a-zA-Z0-9_]{1,}$/,
+            reg: /^[a-zа-яA-ZА-Я0-9_]{2,}$/,
             errMsg: 'От двух знаков без пробелов и спецсимволов',
         },
         password: {
             // eslint-disable-next-line no-useless-escape
-            reg: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,16})/,
-            errMsg: 'От 8 до 16 знаков, по одной цифре, спецсимволу, буквам в нижнем и в верхнем регистрах',
+            reg: /^(?=.*[a-zа-я])(?=.*[A-ZА-Я])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,16})/,
+            errMsg: 'От 8 до 16 знаков, по одной цифре, спецсимволу,буквам в нижнем и в верхнем регистрах',
         },
         tel: {
             reg: /\+?[0-9]{10,15}/,
@@ -40,23 +43,43 @@ export function isFieldValid(validationType: ValidationTypes, value: string): Va
     };
 
     const isValid = validationRules[validationType].reg.test(value);
-    const errMsg = isValid ? '' : validationRules[validationType].errMsg;
+    const errMsg = isValid ? undefined : validationRules[validationType].errMsg;
 
     return { isValid, errMsg };
 }
 
-export const handleInput = (e: Event, comp: BlockProps) => {
-    e.preventDefault();
-    e.stopPropagation();
-
+export const isFieldValid = (e: Event, comp: BlockProps): boolean => {
     const inputElement: HTMLInputElement | null = document.querySelector(`input#${comp.props.name}[type="${comp.props.type}"]`);
-    if (inputElement === null) return;
-    const value: string = inputElement.value.trim();
-    const { errMsg } = isFieldValid(comp.props.validationType!, value);
+
+    if (inputElement === null) throw new Error('Invalid input');
+
+    const inputValue: string = inputElement.value.trim();
+
+    let { isValid, errMsg } = isValueValid(comp.props.validationType!, inputValue);
+
+    /* @ask доп. проверка совпадения значений паролей
+     *      как сделать лучше?
+     */
+
+    if (comp.props.name === ValidationTypes.password_repeat
+        && isValid
+    ) {
+        const passwordInput: HTMLInputElement | null = document.querySelector(`input#${ValidationTypes.password}[type="${ValidationTypes.password}"]`);
+        if (passwordInput === null) throw new Error("Can't find main password` field");
+
+        const passwordInputValue: string = passwordInput.value.trim();
+        if (inputValue !== passwordInputValue) {
+            errMsg = 'Не совпадает с паролем, введенным выше';
+            isValid = false;
+        }
+    }
 
     comp.setProps({ errMsg });
 
     const inputElementUpdated: HTMLInputElement = document.querySelector(`input#${comp.props.name}[type="${comp.props.type}"]`)!;
-    inputElementUpdated.value = value;
+    inputElementUpdated.value = inputValue;
+
     if (e.type === 'focus') inputElementUpdated.focus();
+    console.log(comp.props.name, isValid);
+    return isValid;
 };

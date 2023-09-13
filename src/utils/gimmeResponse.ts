@@ -18,13 +18,19 @@ type GimmeOptionProps = {
     method?: METHODS,
     headers?: Record<string, string>,
     // eslint-disable-next-line no-undef
-    data?: XMLHttpRequestBodyInit & Record<string, string> | null,
+    data?: Record<string, any> | null,
     timeout?: number,
 }
 
-type HTTPMethod = (url: string, options?: GimmeOptionProps) => Promise<unknown>;
+type HTTPMethod = (url: string, options?: GimmeOptionProps) => Promise<XMLHttpRequest>;
 
-export class GimmeResponse {
+export default class GimmeResponse {
+    protected _base: string;
+
+    constructor(base: string) {
+        this._base = base;
+    }
+
     get: HTTPMethod = (url, options = {}) => this._request(
         url,
         { ...options, method: METHODS.GET },
@@ -49,10 +55,22 @@ export class GimmeResponse {
         options.timeout
     );
 
-    private _request = (url: string, options: GimmeOptionProps = {}, timeout = 5000) => {
+    private _request = (
+        url: string,
+        options: GimmeOptionProps = {},
+        timeout = 5000
+    ): Promise<XMLHttpRequest> => {
         const { headers = {}, method, data } = options;
+        // console.log('url', url);
+        // console.log('timeout', timeout);
+        // console.log('options', options);
+        // console.log('headers', headers);
+        // console.log('method', method);
+        // console.log('data', data);
 
-        return new Promise((resolve, reject) => {
+        const fullURL: string = this._base.concat(url);
+
+        return new Promise<XMLHttpRequest>((resolve, reject) => {
             if (!method) {
                 reject(new Error('Empty method'));
                 return;
@@ -66,9 +84,12 @@ export class GimmeResponse {
             xhr.open(
                 method,
                 isGet && !!data
-                    ? `${url}${queryStringify(data)}`
-                    : url,
+                    ? `${fullURL}${queryStringify(data)}`
+                    : fullURL,
             );
+
+            xhr.responseType = 'json';
+            xhr.withCredentials = true;
 
             Object.keys(headers).forEach((key) => {
                 xhr.setRequestHeader(key, headers[key]);
@@ -88,7 +109,9 @@ export class GimmeResponse {
             if (isGet || !data) {
                 xhr.send();
             } else {
-                xhr.send(data);
+                xhr.send(data instanceof FormData
+                    ? data
+                    : JSON.stringify(data));
             }
         });
     };
